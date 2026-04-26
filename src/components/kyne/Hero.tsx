@@ -59,7 +59,7 @@ const Hero = () => {
           className="relative mx-auto mt-28 max-w-5xl animate-fade-up"
           style={{ animationDelay: "480ms" }}
         >
-          <div className="relative grid grid-cols-1 gap-5 sm:grid-cols-3 md:gap-8">
+          <div className="relative grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-5">
             {[
               { name: "signal", time: "morning", price: 38, tagline: "clean morning energy", to: "/signal", tint: "hsl(var(--signal-soft))", glow: "hsl(var(--signal) / 0.55)" },
               { name: "shift", time: "day", price: 38, tagline: "calm daytime focus", to: "/shift", tint: "hsl(var(--shift-soft))", glow: "hsl(var(--shift) / 0.5)" },
@@ -68,7 +68,7 @@ const Hero = () => {
               <Link
                 key={p.name}
                 to={p.to}
-                className="group relative flex aspect-[4/5] flex-col overflow-hidden rounded-[28px] border border-border shadow-soft transition-transform duration-500 hover:-translate-y-1"
+                className="group relative flex aspect-[3/4] flex-col overflow-hidden rounded-[22px] border border-border shadow-soft transition-transform duration-500 hover:-translate-y-1"
                 style={{ backgroundColor: p.tint, animationDelay: `${i * 120}ms` }}
               >
                 <div
@@ -77,27 +77,35 @@ const Hero = () => {
                     background: `radial-gradient(circle at 50% 65%, ${p.glow}, transparent 65%)`,
                   }}
                 />
-                <div className="absolute inset-0 flex items-center justify-center pb-24">
-                  {/* dissolvable strip — stacked translucent layers */}
-                  <div className="relative">
-                    {/* shadow stack hint (multiple strips) */}
-                    <div className="absolute -bottom-1.5 left-1/2 h-1 w-28 -translate-x-1/2 rounded-full bg-foreground/10 blur-[3px] md:w-40" />
-                    <div className="absolute -bottom-2.5 left-[52%] h-[3px] w-24 -translate-x-1/2 rounded-full bg-white/50 md:w-36" />
-                    {/* strip body */}
-                    <div
-                      className="relative h-2.5 w-32 overflow-hidden rounded-[3px] border border-white/60 bg-gradient-to-b from-white/95 via-white/80 to-white/60 shadow-[0_8px_24px_-8px_rgba(0,0,0,0.18),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur-md md:h-3 md:w-44"
-                    >
-                      {/* subtle horizontal grain */}
-                      <div className="absolute inset-0 opacity-40" style={{
-                        backgroundImage: "repeating-linear-gradient(90deg, transparent 0 6px, rgba(255,255,255,0.6) 6px 7px)"
-                      }} />
-                      {/* sheen sweep */}
-                      <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white/80 to-transparent" />
-                      {/* tiny brand notch */}
-                      <div className="absolute right-2 top-1/2 h-[3px] w-[3px] -translate-y-1/2 rounded-full bg-foreground/25 md:right-3" />
+                <div className="absolute inset-0 flex items-center justify-center pb-20">
+                  {/* stack of dissolvable strips — perspective tilt */}
+                  <div
+                    className="relative transition-transform duration-700 group-hover:-translate-y-1"
+                    style={{ transform: "perspective(600px) rotateX(38deg) rotateZ(-8deg)" }}
+                  >
+                    {/* back strip */}
+                    <div className="absolute -left-2 -top-2 h-[58px] w-[88px] rounded-[10px] border border-white/50 bg-gradient-to-br from-white/85 to-white/55 shadow-[0_6px_18px_-6px_rgba(0,0,0,0.18)] backdrop-blur-sm" />
+                    {/* middle strip */}
+                    <div className="absolute -left-1 -top-1 h-[58px] w-[88px] rounded-[10px] border border-white/60 bg-gradient-to-br from-white/95 to-white/70 shadow-[0_6px_18px_-6px_rgba(0,0,0,0.18)] backdrop-blur-sm" />
+                    {/* front strip */}
+                    <div className="relative h-[58px] w-[88px] overflow-hidden rounded-[10px] border border-white/70 bg-gradient-to-br from-white via-white/90 to-white/75 shadow-[0_10px_24px_-8px_rgba(0,0,0,0.22),inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur-md">
+                      {/* fine grain texture */}
+                      <div
+                        className="absolute inset-0 opacity-50"
+                        style={{
+                          backgroundImage:
+                            "repeating-linear-gradient(90deg, transparent 0 3px, rgba(255,255,255,0.55) 3px 4px), repeating-linear-gradient(0deg, transparent 0 3px, rgba(0,0,0,0.025) 3px 4px)",
+                        }}
+                      />
+                      {/* sheen */}
+                      <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white/70 to-transparent" />
+                      {/* embossed K monogram */}
+                      <div className="absolute inset-0 flex items-center justify-center font-display text-[18px] font-light tracking-tight text-foreground/30">
+                        k
+                      </div>
+                      {/* perforation hint */}
+                      <div className="absolute inset-y-1.5 right-1.5 w-px bg-foreground/10" />
                     </div>
-                    {/* thin "edge" beneath to suggest thickness */}
-                    <div className="mx-auto h-[2px] w-32 rounded-b-[3px] bg-gradient-to-b from-foreground/15 to-transparent md:w-44" />
                   </div>
                 </div>
                 <div className="absolute left-5 top-5 font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/60">
@@ -108,20 +116,20 @@ const Hero = () => {
                 </div>
 
                 {/* info footer with price */}
-                <div className="absolute inset-x-3 bottom-3 rounded-2xl border border-white/60 bg-white/70 px-4 py-3 backdrop-blur-md">
+                <div className="absolute inset-x-2.5 bottom-2.5 rounded-xl border border-white/60 bg-white/75 px-3 py-2.5 backdrop-blur-md">
                   <div className="flex items-baseline justify-between gap-2">
-                    <span className="font-display text-base font-medium tracking-tight text-foreground">
+                    <span className="font-display text-sm font-medium tracking-tight text-foreground">
                       kyne {p.name}
                     </span>
-                    <span className="font-display text-base font-medium text-foreground">
+                    <span className="font-display text-sm font-medium text-foreground">
                       ${p.price}
                     </span>
                   </div>
-                  <div className="mt-1 flex items-center justify-between">
-                    <span className="text-[11px] text-muted-foreground">
+                  <div className="mt-0.5 flex items-center justify-between gap-2">
+                    <span className="truncate text-[10px] text-muted-foreground">
                       {p.tagline}
                     </span>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/70 transition-transform group-hover:translate-x-0.5">
+                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-foreground/70 transition-transform group-hover:translate-x-0.5">
                       shop →
                     </span>
                   </div>
