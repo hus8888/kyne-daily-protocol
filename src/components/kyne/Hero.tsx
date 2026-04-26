@@ -130,6 +130,19 @@ const Hero = () => {
                 key={p.name}
                 to={p.to}
                 data-dissolve-target
+                onMouseMove={(e) => {
+                  const el = e.currentTarget;
+                  const rect = el.getBoundingClientRect();
+                  const x = ((e.clientX - rect.left) / rect.width) * 100;
+                  const y = ((e.clientY - rect.top) / rect.height) * 100;
+                  el.style.setProperty("--mx", `${x}%`);
+                  el.style.setProperty("--my", `${y}%`);
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget;
+                  el.style.setProperty("--mx", `50%`);
+                  el.style.setProperty("--my", `65%`);
+                }}
                 className="group relative flex min-h-[188px] flex-col overflow-hidden rounded-[20px] border border-border shadow-soft transition-transform duration-500 hover:-translate-y-1 md:min-h-[220px]"
                 style={{
                   backgroundColor: p.tint,
@@ -139,12 +152,23 @@ const Hero = () => {
                   // shared easing curve for dissolve-edge + particle drift
                   ["--dissolve-easing" as string]:
                     "cubic-bezier(0.22, 1, 0.36, 1)",
+                  // cursor-aware glow position (defaults centered/below)
+                  ["--mx" as string]: "50%",
+                  ["--my" as string]: "65%",
                 }}
               >
+                {/* base ambient tint */}
                 <div
                   className="absolute inset-0"
                   style={{
                     background: `radial-gradient(circle at 50% 65%, ${p.glow}, transparent 65%)`,
+                  }}
+                />
+                {/* cursor-following highlight (desktop) */}
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  style={{
+                    background: `radial-gradient(220px circle at var(--mx) var(--my), ${p.glow}, transparent 60%)`,
                   }}
                 />
                 <div className="absolute inset-0 flex items-center justify-center pb-6">
