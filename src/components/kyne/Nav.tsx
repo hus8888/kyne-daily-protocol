@@ -26,7 +26,7 @@ export const Nav = () => {
       <div className="container">
         <nav
           className={`flex items-center justify-between rounded-full px-5 py-2.5 transition-all duration-500 ${
-            scrolled ? "glass shadow-soft" : "bg-transparent"
+            scrolled ? "glass shadow-soft" : "bg-background/40 backdrop-blur-sm"
           }`}
         >
           <a href="#" className="flex items-center gap-2">
@@ -50,7 +50,7 @@ export const Nav = () => {
 
           <a
             href="#pricing"
-            className="rounded-full bg-foreground px-4 py-2 text-xs font-medium text-background transition-transform hover:scale-[1.03]"
+            className="rounded-full bg-foreground px-4 py-2 text-xs font-medium text-background shadow-soft transition-transform hover:scale-[1.03]"
           >
             Build protocol
           </a>

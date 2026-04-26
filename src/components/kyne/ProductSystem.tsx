@@ -2,23 +2,26 @@ const products = [
   {
     name: "kyne signal",
     time: "morning",
-    desc: "Clean, sustained focus and energy. Engineered for the first window of the day.",
-    accent: "from-[hsl(40_100%_70%)] to-[hsl(20_100%_60%)]",
-    glow: "hsl(40 100% 60% / 0.3)",
+    desc: "Clean, sustained energy and clarity to begin the day with intention.",
+    tint: "hsl(var(--signal-soft))",
+    glow: "hsl(var(--signal) / 0.6)",
+    icon: "☀",
   },
   {
     name: "kyne shift",
     time: "day",
-    desc: "Cognitive endurance and recovery between demands. Stay level under load.",
-    accent: "from-[hsl(195_100%_70%)] to-[hsl(220_100%_60%)]",
-    glow: "hsl(195 100% 60% / 0.35)",
+    desc: "Even focus and gentle recovery to carry you through what the day asks.",
+    tint: "hsl(var(--shift-soft))",
+    glow: "hsl(var(--shift) / 0.55)",
+    icon: "❋",
   },
   {
     name: "kyne rhythm",
     time: "night",
-    desc: "Deep recovery, repair and sleep architecture. Wake restored, not depleted.",
-    accent: "from-[hsl(260_80%_70%)] to-[hsl(220_80%_50%)]",
-    glow: "hsl(260 80% 60% / 0.3)",
+    desc: "Quiet the system, restore the night, and wake feeling fully yours again.",
+    tint: "hsl(var(--rhythm-soft))",
+    glow: "hsl(var(--rhythm) / 0.6)",
+    icon: "☾",
   },
 ];
 
@@ -30,12 +33,12 @@ const ProductSystem = () => {
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
             03 — the system
           </p>
-          <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-tightest text-gradient md:text-6xl">
-            three strips.<br />one protocol.
+          <h2 className="mt-6 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-6xl">
+            three strips.<br />one daily ritual.
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-muted-foreground md:text-lg">
-            Each strip is formulated for a specific window of your day — and
-            engineered to work in sequence, not isolation.
+            Each formula is designed for a specific window of your day — gentle
+            enough to use every day, intentional enough to feel.
           </p>
         </div>
 
@@ -43,44 +46,46 @@ const ProductSystem = () => {
           {products.map((p, i) => (
             <article
               key={p.name}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-surface/40 p-8 transition-all duration-500 hover:-translate-y-1 hover:border-foreground/20 hover:bg-surface"
-              style={{ animationDelay: `${i * 100}ms` }}
+              className="group relative overflow-hidden rounded-[28px] border border-border bg-surface-elevated p-2 shadow-soft transition-transform duration-500 hover:-translate-y-1"
             >
-              {/* visual */}
-              <div className="relative mb-10 aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-background">
+              {/* tinted visual */}
+              <div
+                className="relative mb-6 aspect-[4/3] overflow-hidden rounded-[22px]"
+                style={{ backgroundColor: p.tint }}
+              >
                 <div
-                  className="absolute inset-0 opacity-60 transition-opacity duration-700 group-hover:opacity-100"
+                  className="absolute inset-0"
                   style={{
-                    background: `radial-gradient(circle at 50% 60%, ${p.glow}, transparent 65%)`,
+                    background: `radial-gradient(circle at 50% 65%, ${p.glow}, transparent 65%)`,
                   }}
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div
-                    className={`h-24 w-44 rounded-2xl bg-gradient-to-br ${p.accent} opacity-90 shadow-2xl transition-transform duration-700 group-hover:rotate-[-4deg] group-hover:scale-105`}
-                  />
+                  <div className="h-20 w-32 rounded-2xl bg-white/80 shadow-soft backdrop-blur-sm transition-transform duration-700 group-hover:rotate-[-3deg] group-hover:scale-105 md:h-24 md:w-40" />
                 </div>
-                <div className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+                <div className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/60">
                   {p.time}
                 </div>
-                <div className="absolute right-4 top-4 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                  0{i + 1}
+                <div className="absolute right-4 top-4 text-base text-foreground/70">
+                  {p.icon}
                 </div>
               </div>
 
-              <h3 className="font-display text-2xl font-medium tracking-tight">
-                {p.name}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                {p.desc}
-              </p>
+              <div className="px-6 pb-6">
+                <h3 className="font-display text-2xl font-light tracking-tight text-foreground">
+                  {p.name}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {p.desc}
+                </p>
 
-              <div className="mt-8 flex items-center justify-between border-t border-border pt-5">
-                <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
-                  30 strips
-                </span>
-                <span className="text-sm text-foreground/80 transition-colors group-hover:text-foreground">
-                  details →
-                </span>
+                <div className="mt-8 flex items-center justify-between border-t border-border pt-5">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
+                    30 strips
+                  </span>
+                  <span className="text-sm text-foreground/80 transition-colors group-hover:text-foreground">
+                    learn more →
+                  </span>
+                </div>
               </div>
             </article>
           ))}
