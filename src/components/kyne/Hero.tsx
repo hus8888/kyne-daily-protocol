@@ -88,7 +88,7 @@ const Hero = () => {
                     {/* middle strip */}
                     <div className="absolute -left-1.5 -top-[3px] h-[18px] w-[120px] rounded-full border border-white/55 bg-gradient-to-br from-white/88 to-white/62 shadow-[0_6px_14px_-6px_rgba(0,0,0,0.16)] backdrop-blur-sm" />
                     {/* front strip */}
-                    <div className="relative h-[18px] w-[120px] overflow-hidden rounded-full border border-white/70 bg-gradient-to-br from-white via-white/92 to-white/72 shadow-[0_10px_22px_-10px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur-md">
+                    <div className="relative h-[18px] w-[120px] overflow-hidden rounded-full border border-white/70 bg-gradient-to-br from-white via-white/92 to-white/72 shadow-[0_10px_22px_-10px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur-md animate-dissolve-edge">
                       {/* fine grain texture */}
                       <div
                         className="absolute inset-0 opacity-45"
@@ -115,6 +115,30 @@ const Hero = () => {
                     </div>
                     {/* contact shadow */}
                     <div className="absolute -bottom-2 left-1/2 h-1.5 w-24 -translate-x-1/2 rounded-full bg-foreground/10 blur-[6px]" />
+                    {/* dissolving particles drifting up from the strip */}
+                    <div className="pointer-events-none absolute inset-x-0 -top-3 h-10">
+                      {[
+                        { left: "12%", delay: "0s", dx: "-4px", size: 2 },
+                        { left: "28%", delay: "0.6s", dx: "5px", size: 1.5 },
+                        { left: "44%", delay: "1.1s", dx: "-3px", size: 2 },
+                        { left: "58%", delay: "0.3s", dx: "6px", size: 1.5 },
+                        { left: "72%", delay: "1.4s", dx: "-5px", size: 2 },
+                        { left: "86%", delay: "0.9s", dx: "4px", size: 1.5 },
+                      ].map((p, idx) => (
+                        <span
+                          key={idx}
+                          className="absolute bottom-0 rounded-full bg-white/85 shadow-[0_0_4px_rgba(255,255,255,0.7)] animate-dissolve"
+                          style={{
+                            left: p.left,
+                            width: `${p.size}px`,
+                            height: `${p.size}px`,
+                            animationDelay: p.delay,
+                            // @ts-expect-error css var
+                            "--dx": p.dx,
+                          }}
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
                 <div className="absolute left-5 top-5 font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/60">
