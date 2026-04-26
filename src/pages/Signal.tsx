@@ -3,8 +3,8 @@ import ProductPage from "@/components/kyne/ProductPage";
 const Signal = () => (
   <ProductPage
     slug="signal"
-    name="kyne signal"
-    short="signal"
+    name="kyne morning"
+    short="morning"
     time="morning"
     tagline="clean, sustained energy to begin the day with intention."
     badge="Morning protocol · 01"

@@ -3,8 +3,8 @@ import ProductPage from "@/components/kyne/ProductPage";
 const Shift = () => (
   <ProductPage
     slug="shift"
-    name="kyne shift"
-    short="shift"
+    name="kyne day"
+    short="day"
     time="day"
     tagline="even focus and gentle recovery to carry you through what the day asks."
     badge="Day protocol · 02"
