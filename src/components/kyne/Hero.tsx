@@ -1,13 +1,74 @@
 import { Link } from "react-router-dom";
+import { useEffect, useMemo, useState } from "react";
+
+/**
+ * Returns hero ambient gradient hues based on local time of day.
+ * Morning → warm amber. Day → fresh green. Evening → soft violet. Night → indigo.
+ * All HSL strings; transitions are CSS-driven for smoothness.
+ */
+function useTimeOfDayAmbience() {
+  const [hour, setHour] = useState(() => new Date().getHours());
+
+  useEffect(() => {
+    // Refresh every 10 min — cheap and avoids stale tones over a long session.
+    const id = window.setInterval(
+      () => setHour(new Date().getHours()),
+      10 * 60 * 1000
+    );
+    return () => window.clearInterval(id);
+  }, []);
+
+  return useMemo(() => {
+    // [centerHue, leftHue, rightHue] — kept very pale (high lightness).
+    if (hour >= 5 && hour < 11) {
+      // Morning — warm amber, soft peach, gentle sage
+      return { center: "30 70% 88%", left: "20 60% 90%", right: "130 40% 92%", label: "morning" };
+    }
+    if (hour >= 11 && hour < 16) {
+      // Midday — fresh, bright sand + green + sky
+      return { center: "45 55% 90%", left: "130 35% 92%", right: "200 45% 92%", label: "midday" };
+    }
+    if (hour >= 16 && hour < 20) {
+      // Late afternoon → golden hour
+      return { center: "25 65% 88%", left: "12 55% 90%", right: "280 35% 92%", label: "afternoon" };
+    }
+    if (hour >= 20 && hour < 23) {
+      // Evening — soft violet
+      return { center: "275 45% 90%", left: "300 35% 92%", right: "240 40% 92%", label: "evening" };
+    }
+    // Night — calm indigo
+    return { center: "245 40% 90%", left: "260 35% 92%", right: "220 35% 92%", label: "night" };
+  }, [hour]);
+}
 
 const Hero = () => {
+  const ambience = useTimeOfDayAmbience();
+
   return (
-    <section className="relative overflow-hidden pt-40 pb-32 md:pt-52 md:pb-48">
-      {/* soft, light ambience */}
+    <section
+      className="relative overflow-hidden pt-40 pb-32 md:pt-52 md:pb-48"
+      data-tod={ambience.label}
+    >
+      {/* soft, time-of-day ambience — hues transition smoothly via CSS */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-0 h-[800px] w-[1200px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-[radial-gradient(circle_at_center,hsl(30_60%_88%/0.7),transparent_60%)] blur-3xl" />
-        <div className="absolute right-[10%] top-[20%] h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle_at_center,hsl(260_50%_92%/0.5),transparent_60%)] blur-3xl" />
-        <div className="absolute left-[8%] top-[40%] h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle_at_center,hsl(130_30%_92%/0.5),transparent_60%)] blur-3xl" />
+        <div
+          className="absolute left-1/2 top-0 h-[800px] w-[1200px] -translate-x-1/2 -translate-y-1/3 rounded-full blur-3xl transition-[background] duration-[2000ms] ease-out"
+          style={{
+            background: `radial-gradient(circle at center, hsl(${ambience.center} / 0.7), transparent 60%)`,
+          }}
+        />
+        <div
+          className="absolute right-[10%] top-[20%] h-[400px] w-[400px] rounded-full blur-3xl transition-[background] duration-[2000ms] ease-out"
+          style={{
+            background: `radial-gradient(circle at center, hsl(${ambience.right} / 0.55), transparent 60%)`,
+          }}
+        />
+        <div
+          className="absolute left-[8%] top-[40%] h-[400px] w-[400px] rounded-full blur-3xl transition-[background] duration-[2000ms] ease-out"
+          style={{
+            background: `radial-gradient(circle at center, hsl(${ambience.left} / 0.55), transparent 60%)`,
+          }}
+        />
       </div>
 
       <div className="container relative">
