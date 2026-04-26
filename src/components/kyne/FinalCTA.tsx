@@ -1,3 +1,5 @@
+import MagneticButton from "./MagneticButton";
+
 const FinalCTA = () => {
   return (
     <section className="relative py-32 md:py-48">
@@ -20,13 +22,14 @@ const FinalCTA = () => {
           </p>
 
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
+            <MagneticButton
               href="#pricing"
-              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-4 text-sm font-medium text-background shadow-soft transition-transform hover:scale-[1.03]"
+              strength={12}
+              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-4 text-sm font-medium text-background shadow-soft"
             >
               start your protocol
               <span className="transition-transform group-hover:translate-x-0.5">→</span>
-            </a>
+            </MagneticButton>
             <a
               href="#science"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
+import MagneticButton from "./MagneticButton";
 
 /**
  * Returns hero ambient gradient hues based on local time of day.
@@ -99,13 +100,14 @@ const Hero = () => {
             className="mt-12 flex flex-col items-center gap-4 sm:flex-row animate-fade-up"
             style={{ animationDelay: "320ms" }}
           >
-            <a
+            <MagneticButton
               href="#pricing"
-              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-medium text-background shadow-soft transition-transform hover:scale-[1.02]"
+              strength={10}
+              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-medium text-background shadow-soft"
             >
               build your protocol
               <span className="transition-transform group-hover:translate-x-0.5">→</span>
-            </a>
+            </MagneticButton>
             <a
               href="#system"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"

@@ -16,16 +16,16 @@ const points = [
   },
 ];
 
+import ChapterLabel from "./ChapterLabel";
+
 const Solution = () => {
   return (
     <section className="relative py-32 md:py-44">
       <div className="container">
+        <ChapterLabel align="left">02 — our approach</ChapterLabel>
         <div className="grid gap-16 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              02 — our approach
-            </p>
-            <h2 className="mt-6 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-6xl">
+            <h2 className="mt-10 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-6xl">
               a calmer<br />daily ritual.
             </h2>
             <p className="mt-8 max-w-md text-muted-foreground md:text-lg">
