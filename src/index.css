@@ -175,6 +175,62 @@ All colors MUST be HSL.
   transform: translateY(0);
 }
 
+/* --- Hover dissolve effect for hero strip cards ---
+   Slowly fades + shrinks + erodes the strip via a mask that closes inward
+   from both edges. Extra particles get amplified.
+   All driven by the parent .group:hover state so it reverses on mouseleave. */
+.strip-dissolve {
+  --diss: 0;                       /* 0 = intact, 1 = fully dissolved */
+  transition: all 2.6s cubic-bezier(0.22, 1, 0.36, 1);
+  /* mask shrinks the visible band from edges → center as --diss approaches 1 */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent calc(var(--diss) * 50%),
+    #000 calc(var(--diss) * 50% + 4%),
+    #000 calc(100% - var(--diss) * 50% - 4%),
+    transparent calc(100% - var(--diss) * 50%),
+    transparent 100%
+  );
+          mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent calc(var(--diss) * 50%),
+    #000 calc(var(--diss) * 50% + 4%),
+    #000 calc(100% - var(--diss) * 50% - 4%),
+    transparent calc(100% - var(--diss) * 50%),
+    transparent 100%
+  );
+  filter: blur(calc(var(--diss) * 1.5px));
+  opacity: calc(1 - var(--diss) * 0.92);
+  transform: scale(calc(1 - var(--diss) * 0.08));
+}
+
+.strip-dissolve-stack {
+  --diss: 0;
+  transition: opacity 2.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 2.6s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 2.6s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: calc(1 - var(--diss) * 0.95);
+  transform: scale(calc(1 - var(--diss) * 0.06));
+  filter: blur(calc(var(--diss) * 1px));
+}
+
+/* drive the variable on hover */
+.group:hover .strip-dissolve,
+.group:hover .strip-dissolve-stack {
+  --diss: 1;
+}
+
+/* amplify the existing particle layer when dissolving */
+.group:hover .strip-particles {
+  opacity: 1;
+}
+.strip-particles {
+  opacity: 0.55;
+  transition: opacity 1.2s ease-out;
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] {
     opacity: 1 !important;
@@ -198,5 +254,11 @@ All colors MUST be HSL.
   /* hide the drifting particle layer so no static dots remain at the edges */
   .animate-dissolve {
     opacity: 0 !important;
+  }
+
+  /* never apply hover dissolve when reduced motion is requested */
+  .group:hover .strip-dissolve,
+  .group:hover .strip-dissolve-stack {
+    --diss: 0 !important;
   }
 }

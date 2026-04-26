@@ -180,11 +180,11 @@ const Hero = () => {
                     style={{ transform: "perspective(900px) rotateX(58deg) rotateZ(-10deg)" }}
                   >
                     {/* back strip — fully rounded ends, very thin */}
-                    <div className="absolute -left-3 -top-1.5 h-[18px] w-[120px] rounded-full border border-white/45 bg-gradient-to-br from-white/75 to-white/45 shadow-[0_6px_14px_-6px_rgba(0,0,0,0.16)] backdrop-blur-sm" />
+                    <div className="strip-dissolve-stack absolute -left-3 -top-1.5 h-[18px] w-[120px] rounded-full border border-white/45 bg-gradient-to-br from-white/75 to-white/45 shadow-[0_6px_14px_-6px_rgba(0,0,0,0.16)] backdrop-blur-sm" style={{ transitionDelay: "0.4s" }} />
                     {/* middle strip */}
-                    <div className="absolute -left-1.5 -top-[3px] h-[18px] w-[120px] rounded-full border border-white/55 bg-gradient-to-br from-white/88 to-white/62 shadow-[0_6px_14px_-6px_rgba(0,0,0,0.16)] backdrop-blur-sm" />
-                    {/* front strip */}
-                    <div className="relative h-[18px] w-[120px] overflow-hidden rounded-full border border-white/70 bg-gradient-to-br from-white via-white/92 to-white/72 shadow-[0_10px_22px_-10px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur-md animate-dissolve-edge">
+                    <div className="strip-dissolve-stack absolute -left-1.5 -top-[3px] h-[18px] w-[120px] rounded-full border border-white/55 bg-gradient-to-br from-white/88 to-white/62 shadow-[0_6px_14px_-6px_rgba(0,0,0,0.16)] backdrop-blur-sm" style={{ transitionDelay: "0.2s" }} />
+                    {/* front strip — main subject of the dissolve */}
+                    <div className="strip-dissolve relative h-[18px] w-[120px] overflow-hidden rounded-full border border-white/70 bg-gradient-to-br from-white via-white/92 to-white/72 shadow-[0_10px_22px_-10px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur-md animate-dissolve-edge">
                       {/* fine grain texture */}
                       <div
                         className="absolute inset-0 opacity-45"
@@ -213,7 +213,7 @@ const Hero = () => {
                     <div className="absolute -bottom-2 left-1/2 h-1.5 w-24 -translate-x-1/2 rounded-full bg-foreground/10 blur-[6px]" />
                     {/* dissolving particles — masked to strip edges */}
                     <div
-                      className="pointer-events-none absolute inset-x-0 -top-3 h-10"
+                      className="strip-particles pointer-events-none absolute inset-x-0 -top-3 h-10"
                       style={{
                         WebkitMaskImage:
                           "linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 14%, rgba(0,0,0,0) 32%, rgba(0,0,0,0) 68%, rgba(0,0,0,0.6) 86%, rgba(0,0,0,0.95) 100%)",
