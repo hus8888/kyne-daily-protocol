@@ -6,6 +6,7 @@ import ProductSystem from "@/components/kyne/ProductSystem";
 import HowItWorks from "@/components/kyne/HowItWorks";
 import Ingredients from "@/components/kyne/Ingredients";
 import Pricing from "@/components/kyne/Pricing";
+import Testimonials from "@/components/kyne/Testimonials";
 import FinalCTA from "@/components/kyne/FinalCTA";
 import Footer from "@/components/kyne/Footer";
 
@@ -19,6 +20,7 @@ const Index = () => {
       <ProductSystem />
       <HowItWorks />
       <Ingredients />
+      <Testimonials />
       <Pricing />
       <FinalCTA />
       <Footer />
