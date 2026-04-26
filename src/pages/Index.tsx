@@ -10,20 +10,22 @@ import Testimonials from "@/components/kyne/Testimonials";
 import FinalCTA from "@/components/kyne/FinalCTA";
 import Footer from "@/components/kyne/Footer";
 import DissolveDebugPanel from "@/components/kyne/DissolveDebugPanel";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Index = () => {
+  useScrollReveal();
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       <Nav />
       <Hero />
-      <Problem />
-      <Solution />
-      <ProductSystem />
-      <HowItWorks />
-      <Ingredients />
-      <Testimonials />
-      <Pricing />
-      <FinalCTA />
+      <div data-reveal><Problem /></div>
+      <div data-reveal><Solution /></div>
+      <div data-reveal><ProductSystem /></div>
+      <div data-reveal><HowItWorks /></div>
+      <div data-reveal><Ingredients /></div>
+      <div data-reveal><Testimonials /></div>
+      <div data-reveal><Pricing /></div>
+      <div data-reveal><FinalCTA /></div>
       <Footer />
       {import.meta.env.DEV && <DissolveDebugPanel />}
     </main>
