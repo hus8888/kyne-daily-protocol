@@ -1,34 +1,34 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
-type OptionValue = "low" | "med" | "high";
+type ProductId = "signal" | "shift" | "rhythm";
 
 type Question = {
   id: "energy" | "stress" | "sleep" | "focus" | "goals";
   label: string;
   prompt: string;
   helper: string;
-  options: { value: string; label: string; sub?: string }[];
   multi?: boolean;
+  options: { value: string; label: string; sub?: string }[];
 };
 
 const questions: Question[] = [
   {
     id: "energy",
     label: "energy",
-    prompt: "how's your energy on a typical day?",
-    helper: "Tell us where you usually start.",
+    prompt: "how does your energy usually feel?",
+    helper: "Think about a typical weekday morning.",
     options: [
       { value: "low", label: "running low", sub: "I crash by mid-morning" },
-      { value: "med", label: "uneven", sub: "Good days, flat days" },
+      { value: "med", label: "uneven", sub: "Some good days, some flat" },
       { value: "high", label: "consistent", sub: "Generally strong" },
     ],
   },
   {
     id: "stress",
     label: "stress",
-    prompt: "how would you describe your stress?",
-    helper: "Be honest — this calibrates dosing.",
+    prompt: "how is your stress lately?",
+    helper: "Be honest — this calibrates your protocol.",
     options: [
       { value: "low", label: "manageable", sub: "I feel in control" },
       { value: "med", label: "elevated", sub: "Frequent tension" },
@@ -49,8 +49,8 @@ const questions: Question[] = [
   {
     id: "focus",
     label: "focus",
-    prompt: "how is your focus during work?",
-    helper: "Sustained attention, not just bursts.",
+    prompt: "how is your focus during the day?",
+    helper: "Sustained attention, not short bursts.",
     options: [
       { value: "low", label: "scattered", sub: "Hard to lock in" },
       { value: "med", label: "okay", sub: "Comes and goes" },
@@ -75,22 +75,53 @@ const questions: Question[] = [
 
 type Answers = Partial<Record<Question["id"], string | string[]>>;
 
+const products: Record<
+  ProductId,
+  { name: string; time: string; tagline: string; route: string; tint: string; soft: string; glow: string; benefits: string[] }
+> = {
+  signal: {
+    name: "kyne signal",
+    time: "morning",
+    tagline: "Clean, sustained energy and clarity to begin the day with intention.",
+    route: "/signal",
+    tint: "hsl(var(--signal))",
+    soft: "hsl(var(--signal-soft))",
+    glow: "hsl(var(--signal) / 0.55)",
+    benefits: ["Steady morning energy", "Calm focus, no jitters", "Replaces the second coffee"],
+  },
+  shift: {
+    name: "kyne shift",
+    time: "day",
+    tagline: "Even focus and gentle recovery to carry you through what the day asks.",
+    route: "/shift",
+    tint: "hsl(var(--shift))",
+    soft: "hsl(var(--shift-soft))",
+    glow: "hsl(var(--shift) / 0.5)",
+    benefits: ["Sustained afternoon focus", "Lower stress under load", "Gentle daytime recovery"],
+  },
+  rhythm: {
+    name: "kyne rhythm",
+    time: "night",
+    tagline: "Quiet the system, restore the night, and wake feeling fully yours again.",
+    route: "/rhythm",
+    tint: "hsl(var(--rhythm))",
+    soft: "hsl(var(--rhythm-soft))",
+    glow: "hsl(var(--rhythm) / 0.55)",
+    benefits: ["Fall asleep faster", "Restorative sleep cycles", "Wake clear, not groggy"],
+  },
+};
+
 const computeProtocol = (a: Answers) => {
   const score = { signal: 0, shift: 0, rhythm: 0 };
   const w = (v?: string | string[]) => (v === "low" ? 3 : v === "med" ? 2 : v === "high" ? 1 : 0);
 
-  // energy → signal (morning)
   score.signal += w(a.energy as string) + 1;
-  // focus → shift (day)
   score.shift += w(a.focus as string) + 1;
-  // sleep → rhythm (night)
   score.rhythm += w(a.sleep as string) + 1;
-  // stress nudges shift + rhythm
   const stress = w(a.stress as string);
   score.shift += stress * 0.5;
   score.rhythm += stress * 0.5;
 
-  // goals
   const goals = (a.goals as string[]) ?? [];
   if (goals.includes("energy")) score.signal += 2;
   if (goals.includes("focus")) score.shift += 2;
@@ -102,45 +133,15 @@ const computeProtocol = (a: Answers) => {
   }
 
   const max = Math.max(score.signal, score.shift, score.rhythm);
-  return {
-    scores: score,
-    percent: {
-      signal: Math.round((score.signal / max) * 100),
-      shift: Math.round((score.shift / max) * 100),
-      rhythm: Math.round((score.rhythm / max) * 100),
-    },
-  };
+  const ranked = (Object.entries(score) as [ProductId, number][])
+    .sort((a, b) => b[1] - a[1])
+    .map(([id, v]) => ({ id, percent: Math.round((v / max) * 100) }));
+
+  return { primary: ranked[0], rest: ranked.slice(1) };
 };
 
-const products = [
-  {
-    id: "signal" as const,
-    name: "kyne signal",
-    time: "morning",
-    desc: "Clean, sustained focus and energy to open the day.",
-    accent: "from-[hsl(40_100%_70%)] to-[hsl(20_100%_60%)]",
-    glow: "hsl(40 100% 60% / 0.35)",
-  },
-  {
-    id: "shift" as const,
-    name: "kyne shift",
-    time: "day",
-    desc: "Cognitive endurance and recovery between demands.",
-    accent: "from-[hsl(195_100%_70%)] to-[hsl(220_100%_60%)]",
-    glow: "hsl(195 100% 60% / 0.4)",
-  },
-  {
-    id: "rhythm" as const,
-    name: "kyne rhythm",
-    time: "night",
-    desc: "Deep recovery, repair and sleep architecture.",
-    accent: "from-[hsl(260_80%_70%)] to-[hsl(220_80%_50%)]",
-    glow: "hsl(260 80% 60% / 0.35)",
-  },
-];
-
 const Quiz = () => {
-  const [step, setStep] = useState(0); // 0..questions.length (last = result)
+  const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [direction, setDirection] = useState<1 | -1>(1);
 
@@ -164,7 +165,7 @@ const Quiz = () => {
       setTimeout(() => {
         setDirection(1);
         setStep((s) => s + 1);
-      }, 220);
+      }, 240);
     }
   };
 
@@ -188,30 +189,37 @@ const Quiz = () => {
     return typeof v === "string" && v.length > 0;
   };
 
-  const progress = isResult ? 100 : ((step) / totalSteps) * 100;
+  const progress = isResult ? 100 : (step / totalSteps) * 100;
+  const primaryProduct = result ? products[result.primary.id] : null;
 
   return (
     <main className="relative min-h-[100dvh] overflow-hidden bg-background text-foreground">
-      {/* ambient backdrop */}
+      {/* light, calm ambience */}
       <div className="pointer-events-none fixed inset-0 -z-10">
-        <div className="absolute left-1/2 top-0 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.18),transparent_60%)] blur-3xl" />
-        <div className="absolute inset-0 grid-pattern opacity-40" />
+        <div className="absolute left-1/2 top-0 h-[700px] w-[1100px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-[radial-gradient(circle_at_center,hsl(30_60%_88%/0.6),transparent_60%)] blur-3xl" />
+        {isResult && primaryProduct && (
+          <div
+            className="absolute left-1/2 top-1/3 h-[600px] w-[900px] -translate-x-1/2 rounded-full blur-3xl transition-all duration-700"
+            style={{
+              background: `radial-gradient(circle at center, ${primaryProduct.glow}, transparent 65%)`,
+            }}
+          />
+        )}
       </div>
 
       {/* top bar */}
-      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/70 backdrop-blur-xl">
+      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-xl items-center justify-between px-5 py-4">
           <Link to="/" className="flex items-center gap-2">
             <span className="text-base font-semibold tracking-tightest">KYNE</span>
             <span className="hidden text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground sm:inline">
-              / protocol quiz
+              / find your protocol
             </span>
           </Link>
           <div className="font-mono text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
             {isResult ? "complete" : `0${step + 1} / 0${totalSteps}`}
           </div>
         </div>
-        {/* progress */}
         <div className="h-px w-full bg-border/60">
           <div
             className="h-px bg-foreground transition-all duration-500 ease-out"
@@ -220,19 +228,17 @@ const Quiz = () => {
         </div>
       </header>
 
-      <div className="mx-auto flex min-h-[calc(100dvh-57px)] max-w-xl flex-col px-5 pb-8 pt-10">
+      <div className="mx-auto flex min-h-[calc(100dvh-57px)] max-w-xl flex-col px-5 pb-8 pt-12">
         {!isResult && current && (
           <section
             key={current.id}
-            className={`flex flex-1 flex-col ${
-              direction === 1 ? "animate-fade-up" : "animate-fade-in"
-            }`}
+            className={`flex flex-1 flex-col ${direction === 1 ? "animate-fade-up" : "animate-fade-in"}`}
           >
             <div>
               <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
                 {current.label}
               </div>
-              <h1 className="mt-4 font-display text-3xl font-semibold leading-[1.1] tracking-tightest text-gradient md:text-4xl">
+              <h1 className="mt-4 font-display text-3xl font-light leading-[1.1] tracking-tightest text-foreground md:text-4xl">
                 {current.prompt}
               </h1>
               <p className="mt-3 text-sm text-muted-foreground">{current.helper}</p>
@@ -249,14 +255,14 @@ const Quiz = () => {
                   <button
                     key={opt.value}
                     onClick={() => select(current, opt.value)}
-                    className={`group relative flex w-full items-center justify-between gap-4 rounded-2xl border p-5 text-left transition-all duration-300 ${
+                    className={`group relative flex w-full items-center justify-between gap-4 rounded-2xl border p-5 text-left shadow-soft transition-all duration-300 ${
                       selected
-                        ? "border-foreground/40 bg-surface shadow-elevated"
-                        : "border-border bg-surface/40 hover:border-foreground/20 hover:bg-surface"
+                        ? "border-foreground/40 bg-surface-elevated shadow-elevated"
+                        : "border-border bg-surface-elevated/80 hover:-translate-y-0.5 hover:border-foreground/20"
                     }`}
                   >
                     <div className="min-w-0 flex-1">
-                      <div className="font-display text-base font-medium tracking-tight">
+                      <div className="font-display text-base font-medium tracking-tight text-foreground">
                         {opt.label}
                       </div>
                       {opt.sub && (
@@ -285,13 +291,12 @@ const Quiz = () => {
               })}
             </div>
 
-            {/* sticky footer actions */}
             <div className="sticky bottom-4 mt-auto pt-10">
               <div className="flex items-center justify-between gap-3">
                 <button
                   onClick={back}
                   disabled={step === 0}
-                  className="rounded-full border border-border px-5 py-3 text-sm text-muted-foreground transition-colors hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
+                  className="rounded-full border border-border bg-surface-elevated px-5 py-3 text-sm text-muted-foreground shadow-soft transition-colors hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
                 >
                   ← back
                 </button>
@@ -299,9 +304,9 @@ const Quiz = () => {
                   <button
                     onClick={next}
                     disabled={!isAnswered(current)}
-                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background shadow-elevated transition-all disabled:cursor-not-allowed disabled:opacity-30"
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background shadow-soft transition-all disabled:cursor-not-allowed disabled:opacity-30"
                   >
-                    {step === totalSteps - 1 ? "see protocol" : "continue"}
+                    {step === totalSteps - 1 ? "see my protocol" : "continue"}
                     <span>→</span>
                   </button>
                 ) : (
@@ -314,97 +319,127 @@ const Quiz = () => {
           </section>
         )}
 
-        {isResult && result && (
+        {isResult && result && primaryProduct && (
           <section className="flex flex-1 flex-col animate-fade-up">
             <div className="text-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground backdrop-blur">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-elevated px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground shadow-soft">
+                <span
+                  className="h-1.5 w-1.5 rounded-full"
+                  style={{ backgroundColor: primaryProduct.tint }}
+                />
                 calibrated for you
               </div>
-              <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-tightest text-gradient md:text-5xl">
-                your kyne<br />protocol.
+              <h1 className="mt-6 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-5xl">
+                we recommend<br />
+                <span className="text-foreground">{primaryProduct.name}.</span>
               </h1>
               <p className="mx-auto mt-4 max-w-sm text-sm text-muted-foreground">
-                Based on your answers, this is the daily system we recommend.
+                Based on your answers, this is the best place to begin your daily ritual.
               </p>
             </div>
 
-            <div className="mt-10 space-y-3">
-              {products.map((p, i) => {
-                const pct = result.percent[p.id];
-                const primary = pct >= 90;
-                return (
-                  <article
-                    key={p.id}
-                    className={`group relative overflow-hidden rounded-2xl border p-5 transition-all duration-500 ${
-                      primary
-                        ? "border-foreground/30 bg-surface shadow-elevated"
-                        : "border-border bg-surface/40"
-                    } animate-fade-up`}
-                    style={{ animationDelay: `${i * 100}ms` }}
-                  >
-                    <div className="flex items-center gap-4">
-                      {/* mini visual */}
-                      <div className="relative h-16 w-20 flex-shrink-0 overflow-hidden rounded-xl border border-border bg-background">
-                        <div
-                          className="absolute inset-0 opacity-70"
-                          style={{
-                            background: `radial-gradient(circle at 50% 60%, ${p.glow}, transparent 65%)`,
-                          }}
-                        />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div
-                            className={`h-7 w-12 rounded-md bg-gradient-to-br ${p.accent} opacity-90 shadow-lg`}
-                          />
-                        </div>
-                      </div>
+            {/* Hero recommendation card */}
+            <Link
+              to={primaryProduct.route}
+              className="group mt-10 block overflow-hidden rounded-[28px] border border-border bg-surface-elevated p-2 shadow-elevated transition-transform duration-500 hover:-translate-y-1"
+            >
+              <div
+                className="relative aspect-[4/3] overflow-hidden rounded-[22px]"
+                style={{ backgroundColor: primaryProduct.soft }}
+              >
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: `radial-gradient(circle at 50% 65%, ${primaryProduct.glow}, transparent 65%)`,
+                  }}
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="h-24 w-36 rounded-2xl bg-white/85 shadow-soft backdrop-blur-sm transition-transform duration-700 group-hover:rotate-[-3deg] group-hover:scale-105" />
+                </div>
+                <div className="absolute left-5 top-5 font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/60">
+                  {primaryProduct.time}
+                </div>
+                <div className="absolute right-5 top-5 rounded-full bg-white/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/70 backdrop-blur">
+                  {result.primary.percent}% match
+                </div>
+              </div>
 
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center justify-between gap-3">
-                          <h3 className="font-display text-base font-medium tracking-tight">
-                            {p.name}
-                          </h3>
-                          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                            {p.time}
-                          </span>
-                        </div>
-                        <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
-                          {p.desc}
-                        </p>
-                        {/* match bar */}
-                        <div className="mt-3 flex items-center gap-3">
-                          <div className="h-1 flex-1 overflow-hidden rounded-full bg-border">
-                            <div
-                              className="h-full rounded-full bg-foreground transition-all duration-1000 ease-out"
-                              style={{ width: `${pct}%` }}
-                            />
-                          </div>
-                          <span className="font-mono text-[10px] tabular-nums tracking-[0.15em] text-muted-foreground">
-                            {pct}% match
-                          </span>
-                        </div>
+              <div className="px-6 py-6">
+                <h2 className="font-display text-2xl font-light tracking-tight text-foreground">
+                  {primaryProduct.name}
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {primaryProduct.tagline}
+                </p>
+
+                <ul className="mt-6 space-y-2.5 border-t border-border pt-5">
+                  {primaryProduct.benefits.map((b) => (
+                    <li key={b} className="flex items-start gap-3 text-sm text-foreground/80">
+                      <span
+                        className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full"
+                        style={{ backgroundColor: primaryProduct.tint }}
+                      />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Link>
+
+            {/* Secondary recommendations */}
+            <div className="mt-6 space-y-3">
+              <div className="px-1 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+                also a fit for you
+              </div>
+              {result.rest.map((r) => {
+                const p = products[r.id];
+                return (
+                  <Link
+                    key={r.id}
+                    to={p.route}
+                    className="group flex items-center gap-4 rounded-2xl border border-border bg-surface-elevated/80 p-3 shadow-soft transition-transform hover:-translate-y-0.5"
+                  >
+                    <div
+                      className="relative h-14 w-16 flex-shrink-0 overflow-hidden rounded-xl"
+                      style={{ backgroundColor: p.soft }}
+                    >
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background: `radial-gradient(circle at 50% 65%, ${p.glow}, transparent 65%)`,
+                        }}
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="h-6 w-10 rounded-md bg-white/85 shadow-soft" />
                       </div>
                     </div>
-
-                    {primary && (
-                      <div className="absolute right-3 top-3 rounded-full border border-border bg-background/80 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.25em] text-foreground backdrop-blur">
-                        primary
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="font-display text-sm font-medium text-foreground">
+                          {p.name}
+                        </div>
+                        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                          {r.percent}%
+                        </span>
                       </div>
-                    )}
-                  </article>
+                      <div className="mt-0.5 text-xs text-muted-foreground">
+                        {p.time} · explore →
+                      </div>
+                    </div>
+                  </Link>
                 );
               })}
             </div>
 
             <div className="sticky bottom-4 mt-auto pt-10">
               <div className="flex flex-col gap-3">
-                <a
-                  href="#"
-                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-6 py-4 text-sm font-medium text-background shadow-elevated transition-transform hover:scale-[1.02]"
+                <Link
+                  to={primaryProduct.route}
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-6 py-4 text-sm font-medium text-background shadow-soft transition-transform hover:scale-[1.02]"
                 >
-                  start your protocol
+                  explore {primaryProduct.name}
                   <span className="transition-transform group-hover:translate-x-0.5">→</span>
-                </a>
+                </Link>
                 <button
                   onClick={restart}
                   className="text-center text-xs text-muted-foreground transition-colors hover:text-foreground"
