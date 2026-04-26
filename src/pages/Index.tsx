@@ -1,16 +1,29 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Nav from "@/components/kyne/Nav";
+import Hero from "@/components/kyne/Hero";
+import Problem from "@/components/kyne/Problem";
+import Solution from "@/components/kyne/Solution";
+import ProductSystem from "@/components/kyne/ProductSystem";
+import HowItWorks from "@/components/kyne/HowItWorks";
+import Ingredients from "@/components/kyne/Ingredients";
+import Pricing from "@/components/kyne/Pricing";
+import FinalCTA from "@/components/kyne/FinalCTA";
+import Footer from "@/components/kyne/Footer";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
+    <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+      <Nav />
+      <Hero />
+      <Problem />
+      <Solution />
+      <ProductSystem />
+      <HowItWorks />
+      <Ingredients />
+      <Pricing />
+      <FinalCTA />
+      <Footer />
+    </main>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
