@@ -123,6 +123,15 @@ export default {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
         },
+        "dissolve": {
+          "0%": { opacity: "0", transform: "translate(0, 0) scale(0.6)" },
+          "20%": { opacity: "0.9" },
+          "100%": { opacity: "0", transform: "translate(var(--dx, 6px), -22px) scale(1.1)" },
+        },
+        "dissolve-edge": {
+          "0%, 100%": { opacity: "0.35", transform: "scaleX(1)" },
+          "50%": { opacity: "0.65", transform: "scaleX(0.985)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -132,6 +141,8 @@ export default {
         "pulse-glow": "pulse-glow 4s ease-in-out infinite",
         "float": "float 6s ease-in-out infinite",
         "shimmer": "shimmer 8s linear infinite",
+        "dissolve": "dissolve 3.4s ease-out infinite",
+        "dissolve-edge": "dissolve-edge 3.4s ease-in-out infinite",
       },
     },
   },
