@@ -115,19 +115,29 @@ const Hero = () => {
                     </div>
                     {/* contact shadow */}
                     <div className="absolute -bottom-2 left-1/2 h-1.5 w-24 -translate-x-1/2 rounded-full bg-foreground/10 blur-[6px]" />
-                    {/* dissolving particles drifting up from the strip */}
-                    <div className="pointer-events-none absolute inset-x-0 -top-3 h-10">
+                    {/* dissolving particles — masked to strip edges */}
+                    <div
+                      className="pointer-events-none absolute inset-x-0 -top-3 h-10"
+                      style={{
+                        WebkitMaskImage:
+                          "linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 14%, rgba(0,0,0,0) 32%, rgba(0,0,0,0) 68%, rgba(0,0,0,0.6) 86%, rgba(0,0,0,0.95) 100%)",
+                        maskImage:
+                          "linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 14%, rgba(0,0,0,0) 32%, rgba(0,0,0,0) 68%, rgba(0,0,0,0.6) 86%, rgba(0,0,0,0.95) 100%)",
+                      }}
+                    >
                       {[
-                        { left: "12%", delay: "0s", dx: "-4px", size: 2 },
-                        { left: "28%", delay: "0.6s", dx: "5px", size: 1.5 },
-                        { left: "44%", delay: "1.1s", dx: "-3px", size: 2 },
-                        { left: "58%", delay: "0.3s", dx: "6px", size: 1.5 },
-                        { left: "72%", delay: "1.4s", dx: "-5px", size: 2 },
-                        { left: "86%", delay: "0.9s", dx: "4px", size: 1.5 },
+                        { left: "4%", delay: "0s", dx: "-5px", size: 2 },
+                        { left: "10%", delay: "0.7s", dx: "-3px", size: 1.5 },
+                        { left: "16%", delay: "1.3s", dx: "-6px", size: 2 },
+                        { left: "22%", delay: "0.4s", dx: "-2px", size: 1.5 },
+                        { left: "82%", delay: "0.2s", dx: "3px", size: 1.5 },
+                        { left: "88%", delay: "1.0s", dx: "5px", size: 2 },
+                        { left: "94%", delay: "1.6s", dx: "2px", size: 1.5 },
+                        { left: "98%", delay: "0.5s", dx: "6px", size: 2 },
                       ].map((p, idx) => (
                         <span
                           key={idx}
-                          className="absolute bottom-0 rounded-full bg-white/85 shadow-[0_0_4px_rgba(255,255,255,0.7)] animate-dissolve"
+                          className="absolute bottom-0 rounded-full bg-white/90 shadow-[0_0_4px_rgba(255,255,255,0.7)] animate-dissolve"
                           style={{
                             left: p.left,
                             width: `${p.size}px`,
