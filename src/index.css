@@ -160,3 +160,21 @@ All colors MUST be HSL.
     -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
   }
 }
+
+/* Reduced-motion: respect user OS preference.
+   Disable continuous strip dissolve animations (particle drift + edge breathing)
+   and hide the floating particle layer entirely so nothing moves. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-dissolve,
+  .animate-dissolve-edge,
+  .animate-pulse-glow,
+  .animate-float,
+  .animate-shimmer {
+    animation: none !important;
+  }
+
+  /* hide the drifting particle layer so no static dots remain at the edges */
+  .animate-dissolve {
+    opacity: 0 !important;
+  }
+}
