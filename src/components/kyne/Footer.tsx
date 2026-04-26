@@ -15,9 +15,9 @@ const Footer = () => {
               <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                 System
               </div>
-              <a className="block text-foreground/80 hover:text-foreground" href="#system">Signal</a>
-              <a className="block text-foreground/80 hover:text-foreground" href="#system">Shift</a>
-              <a className="block text-foreground/80 hover:text-foreground" href="#system">Rhythm</a>
+              <a className="block text-foreground/80 hover:text-foreground" href="#system">Morning</a>
+              <a className="block text-foreground/80 hover:text-foreground" href="#system">Day</a>
+              <a className="block text-foreground/80 hover:text-foreground" href="#system">Night</a>
             </div>
             <div className="space-y-3">
               <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">

@@ -3,7 +3,7 @@ const tiers = [
     name: "starter",
     price: 99,
     tagline: "Begin the protocol.",
-    features: ["1 strip system (30 days)", "Choice of signal · shift · rhythm", "Onboarding guide"],
+    features: ["1 strip system (30 days)", "Choice of morning · day · night", "Onboarding guide"],
   },
   {
     name: "core",

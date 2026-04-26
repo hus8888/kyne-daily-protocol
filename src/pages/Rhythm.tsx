@@ -17,7 +17,7 @@ const RhythmNav = () => {
         <nav className={`flex items-center justify-between rounded-full px-5 py-2.5 transition-all duration-500 ${scrolled ? "glass shadow-soft" : "bg-transparent"}`}>
           <Link to="/" className="flex items-center gap-2">
             <span className="text-lg font-semibold tracking-tightest">KYNE</span>
-            <span className="hidden text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground sm:inline">/ rhythm</span>
+            <span className="hidden text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground sm:inline">/ night</span>
           </Link>
           <div className="hidden items-center gap-8 md:flex">
             <Link to="/" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Home</Link>
@@ -84,7 +84,7 @@ const Rhythm = () => {
               </div>
 
               <h1 className="mt-8 font-display text-[44px] font-semibold leading-[1.02] tracking-tightest text-gradient md:text-7xl lg:text-[88px] animate-fade-up" style={{ animationDelay: "60ms" }}>
-                kyne<br />rhythm.
+                kyne<br />night.
               </h1>
 
               <p className="mt-8 max-w-md text-lg text-muted-foreground animate-fade-up" style={{ animationDelay: "180ms" }}>
@@ -127,7 +127,7 @@ const Rhythm = () => {
                 <div className="absolute left-1/2 top-1/2 z-10 h-32 w-56 -translate-x-1/2 -translate-y-1/2 rotate-[-8deg] rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.1] to-white/[0.02] backdrop-blur-2xl shadow-2xl md:h-40 md:w-72">
                   <div className="absolute inset-0 rounded-2xl bg-[linear-gradient(115deg,transparent_30%,hsl(260_80%_70%/0.25)_50%,transparent_70%)] [background-size:200%_100%] animate-shimmer" />
                   <div className="absolute inset-x-0 bottom-3 text-center font-mono text-[10px] uppercase tracking-[0.4em] text-muted-foreground">
-                    KYNE · RHYTHM
+                    KYNE · NIGHT
                   </div>
                 </div>
                 {/* tiny stars */}

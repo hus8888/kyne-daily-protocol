@@ -9,9 +9,9 @@ const stats = [
 
 const Problem = () => {
   return (
-    <section id="problem" className="relative py-32 md:py-44">
+    <section id="protocol" className="relative py-32 md:py-44">
       <div className="container">
-        <ChapterLabel>01 — why we made this</ChapterLabel>
+        <ChapterLabel>01 — why we made this protocol</ChapterLabel>
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="mt-10 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-6xl">
             most supplements<br />never reach you.

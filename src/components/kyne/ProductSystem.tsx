@@ -1,6 +1,6 @@
 const products = [
   {
-    name: "kyne signal",
+    name: "kyne morning",
     time: "morning",
     desc: "Clean, sustained energy and clarity to begin the day with intention.",
     tint: "hsl(var(--signal-soft))",
@@ -8,7 +8,7 @@ const products = [
     icon: "☀",
   },
   {
-    name: "kyne shift",
+    name: "kyne day",
     time: "day",
     desc: "Even focus and gentle recovery to carry you through what the day asks.",
     tint: "hsl(var(--shift-soft))",
@@ -16,7 +16,7 @@ const products = [
     icon: "❋",
   },
   {
-    name: "kyne rhythm",
+    name: "kyne night",
     time: "night",
     desc: "Quiet the system, restore the night, and wake feeling fully yours again.",
     tint: "hsl(var(--rhythm-soft))",

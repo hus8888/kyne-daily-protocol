@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const links = [
-  { href: "#problem", label: "Problem" },
+  { href: "#protocol", label: "Protocol" },
   { href: "#system", label: "System" },
   { href: "#science", label: "Science" },
   { href: "#pricing", label: "Pricing" },

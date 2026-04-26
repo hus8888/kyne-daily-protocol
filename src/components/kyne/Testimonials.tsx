@@ -5,9 +5,9 @@ import CountUp from "./CountUp";
 type Product = "signal" | "shift" | "rhythm";
 
 const tabs: { id: Product; label: string; time: string; tint: string; glow: string }[] = [
-  { id: "signal", label: "kyne signal", time: "morning", tint: "hsl(var(--signal-soft))", glow: "hsl(var(--signal) / 0.45)" },
-  { id: "shift", label: "kyne shift", time: "day", tint: "hsl(var(--shift-soft))", glow: "hsl(var(--shift) / 0.45)" },
-  { id: "rhythm", label: "kyne rhythm", time: "night", tint: "hsl(var(--rhythm-soft))", glow: "hsl(var(--rhythm) / 0.45)" },
+  { id: "signal", label: "kyne morning", time: "morning", tint: "hsl(var(--signal-soft))", glow: "hsl(var(--signal) / 0.45)" },
+  { id: "shift", label: "kyne day", time: "day", tint: "hsl(var(--shift-soft))", glow: "hsl(var(--shift) / 0.45)" },
+  { id: "rhythm", label: "kyne night", time: "night", tint: "hsl(var(--rhythm-soft))", glow: "hsl(var(--rhythm) / 0.45)" },
 ];
 
 const quotes: Record<Product, { rating: number; quote: string; name: string; meta: string }[]> = {
@@ -15,7 +15,7 @@ const quotes: Record<Product, { rating: number; quote: string; name: string; met
     {
       rating: 5,
       quote:
-        "I used to need two coffees and a 30-minute warm-up to feel awake. Signal gives me a clean lift in about ten minutes. No jitters, no crash.",
+        "I used to need two coffees and a 30-minute warm-up to feel awake. Morning gives me a clean lift in about ten minutes. No jitters, no crash.",
       name: "Maya R.",
       meta: "designer · 4 months",
     },
@@ -38,7 +38,7 @@ const quotes: Record<Product, { rating: number; quote: string; name: string; met
     {
       rating: 5,
       quote:
-        "Shift completely changed my afternoons. The 3pm fog used to wreck me — now I just keep going, evenly, without forcing it.",
+        "Day completely changed my afternoons. The 3pm fog used to wreck me — now I just keep going, evenly, without forcing it.",
       name: "Amara T.",
       meta: "writer · 5 months",
     },
@@ -68,7 +68,7 @@ const quotes: Record<Product, { rating: number; quote: string; name: string; met
     {
       rating: 5,
       quote:
-        "I've tried everything for sleep. Rhythm is the first one that doesn't knock me out — it just gently lets me go.",
+        "I've tried everything for sleep. Night is the first one that doesn't knock me out — it just gently lets me go.",
       name: "Elena V.",
       meta: "therapist · 6 months",
     },
