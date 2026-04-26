@@ -34,6 +34,18 @@ export default {
           foreground: "hsl(var(--primary-foreground))",
           glow: "hsl(var(--primary-glow))",
         },
+        signal: {
+          DEFAULT: "hsl(var(--signal))",
+          soft: "hsl(var(--signal-soft))",
+        },
+        shift: {
+          DEFAULT: "hsl(var(--shift))",
+          soft: "hsl(var(--shift-soft))",
+        },
+        rhythm: {
+          DEFAULT: "hsl(var(--rhythm))",
+          soft: "hsl(var(--rhythm-soft))",
+        },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
