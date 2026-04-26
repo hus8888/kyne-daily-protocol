@@ -6,6 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Rhythm from "./pages/Rhythm.tsx";
+import Signal from "./pages/Signal.tsx";
+import Shift from "./pages/Shift.tsx";
 import Quiz from "./pages/Quiz.tsx";
 
 const queryClient = new QueryClient();
@@ -18,6 +20,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/signal" element={<Signal />} />
+          <Route path="/shift" element={<Shift />} />
           <Route path="/rhythm" element={<Rhythm />} />
           <Route path="/quiz" element={<Quiz />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const links = [
   { href: "#problem", label: "Problem" },
@@ -46,14 +47,20 @@ export const Nav = () => {
                 {l.label}
               </a>
             ))}
+            <Link
+              to="/quiz"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Quiz
+            </Link>
           </div>
 
-          <a
-            href="#pricing"
+          <Link
+            to="/quiz"
             className="rounded-full bg-foreground px-4 py-2 text-xs font-medium text-background shadow-soft transition-transform hover:scale-[1.03]"
           >
-            Build protocol
-          </a>
+            Find your protocol
+          </Link>
         </nav>
       </div>
     </header>
