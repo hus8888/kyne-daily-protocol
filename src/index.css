@@ -161,6 +161,28 @@ All colors MUST be HSL.
   }
 }
 
+/* Scroll-reveal: soft fade + 16px rise applied via IntersectionObserver. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 /* Reduced-motion: respect user OS preference.
    Disable continuous strip dissolve animations (particle drift + edge breathing)
    and hide the floating particle layer entirely so nothing moves. */
