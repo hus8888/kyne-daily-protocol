@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Hero = () => {
   return (
     <section className="relative overflow-hidden pt-40 pb-32 md:pt-52 md:pb-48">
@@ -57,15 +59,16 @@ const Hero = () => {
           className="relative mx-auto mt-28 max-w-5xl animate-fade-up"
           style={{ animationDelay: "480ms" }}
         >
-          <div className="relative grid grid-cols-3 gap-4 md:gap-8">
+          <div className="relative grid grid-cols-1 gap-5 sm:grid-cols-3 md:gap-8">
             {[
-              { name: "signal", time: "morning", tint: "hsl(var(--signal-soft))", glow: "hsl(var(--signal) / 0.55)" },
-              { name: "shift", time: "day", tint: "hsl(var(--shift-soft))", glow: "hsl(var(--shift) / 0.5)" },
-              { name: "rhythm", time: "night", tint: "hsl(var(--rhythm-soft))", glow: "hsl(var(--rhythm) / 0.55)" },
+              { name: "signal", time: "morning", price: 38, tagline: "clean morning energy", to: "/signal", tint: "hsl(var(--signal-soft))", glow: "hsl(var(--signal) / 0.55)" },
+              { name: "shift", time: "day", price: 38, tagline: "calm daytime focus", to: "/shift", tint: "hsl(var(--shift-soft))", glow: "hsl(var(--shift) / 0.5)" },
+              { name: "rhythm", time: "night", price: 38, tagline: "fall asleep faster", to: "/rhythm", tint: "hsl(var(--rhythm-soft))", glow: "hsl(var(--rhythm) / 0.55)" },
             ].map((p, i) => (
-              <div
+              <Link
                 key={p.name}
-                className="group relative aspect-[4/5] overflow-hidden rounded-[28px] border border-border shadow-soft transition-transform duration-500 hover:-translate-y-1"
+                to={p.to}
+                className="group relative flex aspect-[4/5] flex-col overflow-hidden rounded-[28px] border border-border shadow-soft transition-transform duration-500 hover:-translate-y-1"
                 style={{ backgroundColor: p.tint, animationDelay: `${i * 120}ms` }}
               >
                 <div
@@ -74,7 +77,7 @@ const Hero = () => {
                     background: `radial-gradient(circle at 50% 65%, ${p.glow}, transparent 65%)`,
                   }}
                 />
-                <div className="absolute inset-0 flex items-end justify-center pb-10">
+                <div className="absolute inset-0 flex items-center justify-center pb-24">
                   {/* dissolvable strip — stacked translucent layers */}
                   <div className="relative">
                     {/* shadow stack hint (multiple strips) */}
@@ -100,15 +103,30 @@ const Hero = () => {
                 <div className="absolute left-5 top-5 font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/60">
                   {p.time}
                 </div>
-                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
-                  <span className="font-display text-base font-medium tracking-tight text-foreground">
-                    kyne {p.name}
-                  </span>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/60">
-                    0{i + 1}
-                  </span>
+                <div className="absolute right-5 top-5 font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/60">
+                  0{i + 1}
                 </div>
-              </div>
+
+                {/* info footer with price */}
+                <div className="absolute inset-x-3 bottom-3 rounded-2xl border border-white/60 bg-white/70 px-4 py-3 backdrop-blur-md">
+                  <div className="flex items-baseline justify-between gap-2">
+                    <span className="font-display text-base font-medium tracking-tight text-foreground">
+                      kyne {p.name}
+                    </span>
+                    <span className="font-display text-base font-medium text-foreground">
+                      ${p.price}
+                    </span>
+                  </div>
+                  <div className="mt-1 flex items-center justify-between">
+                    <span className="text-[11px] text-muted-foreground">
+                      {p.tagline}
+                    </span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/70 transition-transform group-hover:translate-x-0.5">
+                      shop →
+                    </span>
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
