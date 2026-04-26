@@ -69,7 +69,12 @@ const Hero = () => {
                 key={p.name}
                 to={p.to}
                 className="group relative flex min-h-[188px] flex-col overflow-hidden rounded-[20px] border border-border shadow-soft transition-transform duration-500 hover:-translate-y-1 md:min-h-[220px]"
-                style={{ backgroundColor: p.tint, animationDelay: `${i * 120}ms` }}
+                style={{
+                  backgroundColor: p.tint,
+                  animationDelay: `${i * 120}ms`,
+                  // shared timing for dissolve-edge + particle drift
+                  ["--dissolve-duration" as string]: `${3.4 + i * 0.4}s`,
+                }}
               >
                 <div
                   className="absolute inset-0"
