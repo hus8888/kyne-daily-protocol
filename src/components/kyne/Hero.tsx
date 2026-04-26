@@ -78,35 +78,43 @@ const Hero = () => {
                   }}
                 />
                 <div className="absolute inset-0 flex items-center justify-center pb-6">
-                  {/* stack of dissolvable strips — long, thin, oral-strip proportions */}
+                  {/* stack of dissolvable oral strips — pill-form geometry */}
                   <div
                     className="relative transition-transform duration-700 group-hover:-translate-y-1"
-                    style={{ transform: "perspective(800px) rotateX(52deg) rotateZ(-10deg)" }}
+                    style={{ transform: "perspective(900px) rotateX(58deg) rotateZ(-10deg)" }}
                   >
-                    {/* back strip */}
-                    <div className="absolute -left-3 -top-2 h-[34px] w-[128px] rounded-[7px] border border-white/45 bg-gradient-to-br from-white/75 to-white/45 shadow-[0_8px_18px_-8px_rgba(0,0,0,0.16)] backdrop-blur-sm" />
+                    {/* back strip — fully rounded ends, very thin */}
+                    <div className="absolute -left-3 -top-1.5 h-[18px] w-[120px] rounded-full border border-white/45 bg-gradient-to-br from-white/75 to-white/45 shadow-[0_6px_14px_-6px_rgba(0,0,0,0.16)] backdrop-blur-sm" />
                     {/* middle strip */}
-                    <div className="absolute -left-1.5 -top-1 h-[34px] w-[128px] rounded-[7px] border border-white/55 bg-gradient-to-br from-white/88 to-white/62 shadow-[0_8px_18px_-8px_rgba(0,0,0,0.16)] backdrop-blur-sm" />
+                    <div className="absolute -left-1.5 -top-[3px] h-[18px] w-[120px] rounded-full border border-white/55 bg-gradient-to-br from-white/88 to-white/62 shadow-[0_6px_14px_-6px_rgba(0,0,0,0.16)] backdrop-blur-sm" />
                     {/* front strip */}
-                    <div className="relative h-[34px] w-[128px] overflow-hidden rounded-[7px] border border-white/70 bg-gradient-to-br from-white via-white/92 to-white/72 shadow-[0_12px_24px_-10px_rgba(0,0,0,0.18),inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur-md">
+                    <div className="relative h-[18px] w-[120px] overflow-hidden rounded-full border border-white/70 bg-gradient-to-br from-white via-white/92 to-white/72 shadow-[0_10px_22px_-10px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur-md">
                       {/* fine grain texture */}
                       <div
-                        className="absolute inset-0 opacity-50"
+                        className="absolute inset-0 opacity-45"
                         style={{
                           backgroundImage:
-                            "repeating-linear-gradient(90deg, transparent 0 4px, rgba(255,255,255,0.48) 4px 5px), repeating-linear-gradient(0deg, transparent 0 3px, rgba(0,0,0,0.02) 3px 4px)",
+                            "repeating-linear-gradient(90deg, transparent 0 4px, rgba(255,255,255,0.45) 4px 5px), repeating-linear-gradient(0deg, transparent 0 2px, rgba(0,0,0,0.02) 2px 3px)",
                         }}
                       />
                       {/* sheen */}
-                      <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-white/70 to-transparent" />
-                      {/* subtle center mark */}
-                      <div className="absolute inset-0 flex items-center justify-center font-display text-[10px] font-light tracking-[0.2em] text-foreground/22">
+                      <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-white/65 to-transparent" />
+                      {/* perforation holes — micro dots */}
+                      <div className="absolute inset-y-0 left-3 right-3 flex items-center justify-between">
+                        {Array.from({ length: 9 }).map((_, idx) => (
+                          <span
+                            key={idx}
+                            className="h-[2px] w-[2px] rounded-full bg-foreground/22"
+                          />
+                        ))}
+                      </div>
+                      {/* tiny brand mark */}
+                      <div className="absolute inset-0 flex items-center justify-center font-display text-[8px] font-light tracking-[0.25em] text-foreground/30">
                         kyne
                       </div>
-                      {/* perforation hint */}
-                      <div className="absolute inset-y-1.5 right-2 w-px bg-foreground/10" />
                     </div>
-                    <div className="absolute -bottom-2 left-1/2 h-2 w-24 -translate-x-1/2 rounded-full bg-foreground/8 blur-[6px]" />
+                    {/* contact shadow */}
+                    <div className="absolute -bottom-2 left-1/2 h-1.5 w-24 -translate-x-1/2 rounded-full bg-foreground/10 blur-[6px]" />
                   </div>
                 </div>
                 <div className="absolute left-5 top-5 font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/60">
