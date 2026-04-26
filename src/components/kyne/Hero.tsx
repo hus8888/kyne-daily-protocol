@@ -74,6 +74,9 @@ const Hero = () => {
                   animationDelay: `${i * 120}ms`,
                   // shared timing for dissolve-edge + particle drift
                   ["--dissolve-duration" as string]: `${3.4 + i * 0.4}s`,
+                  // shared easing curve for dissolve-edge + particle drift
+                  ["--dissolve-easing" as string]:
+                    "cubic-bezier(0.22, 1, 0.36, 1)",
                 }}
               >
                 <div
