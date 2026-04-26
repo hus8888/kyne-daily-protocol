@@ -25,15 +25,15 @@ const products = [
   },
 ];
 
+import ChapterLabel from "./ChapterLabel";
+
 const ProductSystem = () => {
   return (
     <section id="system" className="relative py-32 md:py-44">
       <div className="container">
+        <ChapterLabel>03 — the system</ChapterLabel>
         <div className="mx-auto max-w-3xl text-center">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            03 — the system
-          </p>
-          <h2 className="mt-6 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-6xl">
+          <h2 className="mt-10 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-6xl">
             three strips.<br />one daily ritual.
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-muted-foreground md:text-lg">

@@ -31,15 +31,15 @@ const ingredients = [
   },
 ];
 
+import ChapterLabel from "./ChapterLabel";
+
 const Ingredients = () => {
   return (
     <section className="relative py-32 md:py-44">
       <div className="container">
+        <ChapterLabel>05 — what's inside</ChapterLabel>
         <div className="mx-auto max-w-3xl text-center">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            05 — what's inside
-          </p>
-          <h2 className="mt-6 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-6xl">
+          <h2 className="mt-10 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-6xl">
             simple, considered<br />ingredients.
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-muted-foreground md:text-lg">

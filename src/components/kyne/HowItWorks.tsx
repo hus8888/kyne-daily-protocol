@@ -16,15 +16,15 @@ const steps = [
   },
 ];
 
+import ChapterLabel from "./ChapterLabel";
+
 const HowItWorks = () => {
   return (
     <section id="science" className="relative py-32 md:py-44">
       <div className="container">
+        <ChapterLabel>04 — how it works</ChapterLabel>
         <div className="mx-auto max-w-3xl text-center">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            04 — how it works
-          </p>
-          <h2 className="mt-6 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-6xl">
+          <h2 className="mt-10 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-6xl">
             three steps.<br />zero friction.
           </h2>
         </div>

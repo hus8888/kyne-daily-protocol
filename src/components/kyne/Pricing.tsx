@@ -20,15 +20,16 @@ const tiers = [
   },
 ];
 
+import ChapterLabel from "./ChapterLabel";
+import MagneticButton from "./MagneticButton";
+
 const Pricing = () => {
   return (
     <section id="pricing" className="relative py-32 md:py-44">
       <div className="container">
+        <ChapterLabel>06 — choose your protocol</ChapterLabel>
         <div className="mx-auto max-w-3xl text-center">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            06 — choose your protocol
-          </p>
-          <h2 className="mt-6 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-6xl">
+          <h2 className="mt-10 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-6xl">
             start small.<br />build a ritual.
           </h2>
         </div>
@@ -69,16 +70,17 @@ const Pricing = () => {
                 ))}
               </ul>
 
-              <a
+              <MagneticButton
                 href="#"
-                className={`mt-12 inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-medium transition-transform hover:scale-[1.02] ${
+                strength={t.featured ? 8 : 5}
+                className={`mt-12 inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-medium ${
                   t.featured
                     ? "bg-foreground text-background shadow-soft"
                     : "border border-border bg-transparent text-foreground hover:bg-accent"
                 }`}
               >
                 start {t.name}
-              </a>
+              </MagneticButton>
             </div>
           ))}
         </div>

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import ChapterLabel from "./ChapterLabel";
+import CountUp from "./CountUp";
 
 type Product = "signal" | "shift" | "rhythm";
 
@@ -114,11 +116,9 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="relative py-32 md:py-44">
       <div className="container">
+        <ChapterLabel>07 — what people say</ChapterLabel>
         <div className="mx-auto max-w-3xl text-center">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            07 — what people say
-          </p>
-          <h2 className="mt-6 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-6xl">
+          <h2 className="mt-10 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-6xl">
             calm, quiet,<br />consistent results.
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-muted-foreground md:text-lg">
@@ -128,12 +128,17 @@ const Testimonials = () => {
           {/* aggregate */}
           <div className="mt-10 inline-flex items-center gap-3 rounded-full border border-border bg-surface-elevated px-5 py-2 shadow-soft">
             <Rating value={Math.round(avg)} />
-            <span className="text-sm font-medium text-foreground">
-              {avg.toFixed(1)}
-            </span>
-            <span className="text-xs text-muted-foreground">
-              · 2,400+ reviews
-            </span>
+            <CountUp
+              to={avg}
+              decimals={1}
+              className="text-sm font-medium text-foreground"
+            />
+            <span className="text-xs text-muted-foreground">·</span>
+            <CountUp
+              to={2400}
+              suffix="+ reviews"
+              className="text-xs text-muted-foreground"
+            />
           </div>
         </div>
 
