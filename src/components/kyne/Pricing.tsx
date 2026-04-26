@@ -26,10 +26,10 @@ const Pricing = () => {
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            06 — protocols
+            06 — choose your protocol
           </p>
-          <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-tightest text-gradient md:text-6xl">
-            choose your<br />protocol.
+          <h2 className="mt-6 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-6xl">
+            start small.<br />build a ritual.
           </h2>
         </div>
 
@@ -37,14 +37,14 @@ const Pricing = () => {
           {tiers.map((t) => (
             <div
               key={t.name}
-              className={`relative flex flex-col rounded-3xl border p-10 transition-all duration-500 hover:-translate-y-1 ${
+              className={`relative flex flex-col rounded-[28px] border p-10 shadow-soft transition-transform duration-500 hover:-translate-y-1 ${
                 t.featured
-                  ? "border-foreground/20 bg-surface shadow-elevated"
-                  : "border-border bg-surface/40 hover:border-foreground/10"
+                  ? "border-foreground/20 bg-surface-elevated shadow-elevated"
+                  : "border-border bg-surface-elevated/70"
               }`}
             >
               {t.featured && (
-                <div className="absolute -top-px left-1/2 -translate-x-1/2 rounded-b-full border border-t-0 border-border bg-background px-4 py-1.5 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full border border-border bg-surface-elevated px-4 py-1.5 font-mono text-[10px] uppercase tracking-[0.25em] text-foreground shadow-soft">
                   most chosen
                 </div>
               )}
@@ -53,7 +53,7 @@ const Pricing = () => {
                 {t.name}
               </div>
               <div className="mt-6 flex items-baseline gap-1">
-                <span className="font-display text-6xl font-semibold tracking-tightest">
+                <span className="font-display text-6xl font-light tracking-tightest text-foreground">
                   ${t.price}
                 </span>
                 <span className="text-sm text-muted-foreground">/ month</span>
@@ -73,8 +73,8 @@ const Pricing = () => {
                 href="#"
                 className={`mt-12 inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-medium transition-transform hover:scale-[1.02] ${
                   t.featured
-                    ? "bg-foreground text-background"
-                    : "border border-border bg-transparent text-foreground hover:border-foreground/30"
+                    ? "bg-foreground text-background shadow-soft"
+                    : "border border-border bg-transparent text-foreground hover:bg-accent"
                 }`}
               >
                 start {t.name}

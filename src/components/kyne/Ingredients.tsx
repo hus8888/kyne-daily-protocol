@@ -37,32 +37,32 @@ const Ingredients = () => {
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            05 — transparency
+            05 — what's inside
           </p>
-          <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-tightest text-gradient md:text-6xl">
-            every input,<br />accountable.
+          <h2 className="mt-6 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-6xl">
+            simple, considered<br />ingredients.
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-muted-foreground md:text-lg">
-            No proprietary blends. No hidden fillers. Each active is selected
-            because the strip format meaningfully changes how it works.
+            No proprietary blends. No hidden fillers. Just well-known
+            ingredients chosen for how gently — and effectively — they work.
           </p>
         </div>
 
-        <div className="mt-20 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-20 grid gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-3">
           {ingredients.map((ing) => (
             <div
               key={ing.name}
-              className="group bg-background p-8 transition-colors hover:bg-surface"
+              className="group rounded-3xl border border-border bg-surface-elevated p-7 shadow-soft transition-transform hover:-translate-y-0.5"
             >
               <div className="flex items-baseline justify-between gap-4">
-                <h3 className="font-display text-lg font-medium tracking-tight">
+                <h3 className="font-display text-lg font-medium tracking-tight text-foreground">
                   {ing.name}
                 </h3>
                 <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                   active
                 </span>
               </div>
-              <p className="mt-2 text-sm text-foreground/80">{ing.benefit}</p>
+              <p className="mt-3 text-sm text-foreground/70">{ing.benefit}</p>
               <p className="mt-6 border-t border-border pt-5 text-xs leading-relaxed text-muted-foreground">
                 {ing.why}
               </p>
