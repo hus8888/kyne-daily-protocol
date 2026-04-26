@@ -9,6 +9,7 @@ import Pricing from "@/components/kyne/Pricing";
 import Testimonials from "@/components/kyne/Testimonials";
 import FinalCTA from "@/components/kyne/FinalCTA";
 import Footer from "@/components/kyne/Footer";
+import DissolveDebugPanel from "@/components/kyne/DissolveDebugPanel";
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
       <Pricing />
       <FinalCTA />
       <Footer />
+      {import.meta.env.DEV && <DissolveDebugPanel />}
     </main>
   );
 };
