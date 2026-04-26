@@ -75,7 +75,27 @@ const Hero = () => {
                   }}
                 />
                 <div className="absolute inset-0 flex items-end justify-center pb-10">
-                  <div className="h-24 w-32 rounded-2xl bg-white/70 shadow-soft backdrop-blur-sm md:h-32 md:w-44" />
+                  {/* dissolvable strip — stacked translucent layers */}
+                  <div className="relative">
+                    {/* shadow stack hint (multiple strips) */}
+                    <div className="absolute -bottom-1.5 left-1/2 h-1 w-28 -translate-x-1/2 rounded-full bg-foreground/10 blur-[3px] md:w-40" />
+                    <div className="absolute -bottom-2.5 left-[52%] h-[3px] w-24 -translate-x-1/2 rounded-full bg-white/50 md:w-36" />
+                    {/* strip body */}
+                    <div
+                      className="relative h-2.5 w-32 overflow-hidden rounded-[3px] border border-white/60 bg-gradient-to-b from-white/95 via-white/80 to-white/60 shadow-[0_8px_24px_-8px_rgba(0,0,0,0.18),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur-md md:h-3 md:w-44"
+                    >
+                      {/* subtle horizontal grain */}
+                      <div className="absolute inset-0 opacity-40" style={{
+                        backgroundImage: "repeating-linear-gradient(90deg, transparent 0 6px, rgba(255,255,255,0.6) 6px 7px)"
+                      }} />
+                      {/* sheen sweep */}
+                      <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white/80 to-transparent" />
+                      {/* tiny brand notch */}
+                      <div className="absolute right-2 top-1/2 h-[3px] w-[3px] -translate-y-1/2 rounded-full bg-foreground/25 md:right-3" />
+                    </div>
+                    {/* thin "edge" beneath to suggest thickness */}
+                    <div className="mx-auto h-[2px] w-32 rounded-b-[3px] bg-gradient-to-b from-foreground/15 to-transparent md:w-44" />
+                  </div>
                 </div>
                 <div className="absolute left-5 top-5 font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/60">
                   {p.time}

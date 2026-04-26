@@ -60,7 +60,33 @@ const ProductSystem = () => {
                   }}
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="h-20 w-32 rounded-2xl bg-white/80 shadow-soft backdrop-blur-sm transition-transform duration-700 group-hover:rotate-[-3deg] group-hover:scale-105 md:h-24 md:w-40" />
+                  {/* dissolvable strip illustration */}
+                  <div className="relative transition-transform duration-700 group-hover:rotate-[-4deg] group-hover:scale-105">
+                    {/* second strip peeking behind */}
+                    <div className="absolute -right-3 top-1.5 h-2.5 w-28 rotate-[6deg] rounded-[3px] border border-white/50 bg-white/55 shadow-soft backdrop-blur-sm md:h-3 md:w-36" />
+                    {/* main strip */}
+                    <div className="relative h-2.5 w-32 overflow-hidden rounded-[3px] border border-white/70 bg-gradient-to-b from-white via-white/85 to-white/65 shadow-[0_10px_28px_-10px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur-md md:h-3 md:w-40">
+                      <div
+                        className="absolute inset-0 opacity-40"
+                        style={{
+                          backgroundImage:
+                            "repeating-linear-gradient(90deg, transparent 0 6px, rgba(255,255,255,0.7) 6px 7px)",
+                        }}
+                      />
+                      <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white/85 to-transparent" />
+                      <div className="absolute right-2.5 top-1/2 h-[3px] w-[3px] -translate-y-1/2 rounded-full bg-foreground/25" />
+                    </div>
+                    {/* edge / thickness */}
+                    <div className="mx-auto h-[2px] w-32 rounded-b-[3px] bg-gradient-to-b from-foreground/15 to-transparent md:w-40" />
+                    {/* dissolving particles */}
+                    <div className="pointer-events-none absolute -bottom-3 left-1/2 -translate-x-1/2">
+                      <div className="flex gap-1.5 opacity-60">
+                        <span className="h-1 w-1 rounded-full bg-white/80" />
+                        <span className="h-0.5 w-0.5 rounded-full bg-white/60" />
+                        <span className="h-1 w-1 rounded-full bg-white/70" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/60">
                   {p.time}
