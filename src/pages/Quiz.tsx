@@ -80,7 +80,7 @@ const products: Record<
   { name: string; time: string; tagline: string; route: string; tint: string; soft: string; glow: string; benefits: string[] }
 > = {
   signal: {
-    name: "kyne signal",
+    name: "kyne morning",
     time: "morning",
     tagline: "Clean, sustained energy and clarity to begin the day with intention.",
     route: "/signal",
@@ -90,7 +90,7 @@ const products: Record<
     benefits: ["Steady morning energy", "Calm focus, no jitters", "Replaces the second coffee"],
   },
   shift: {
-    name: "kyne shift",
+    name: "kyne day",
     time: "day",
     tagline: "Even focus and gentle recovery to carry you through what the day asks.",
     route: "/shift",
@@ -100,7 +100,7 @@ const products: Record<
     benefits: ["Sustained afternoon focus", "Lower stress under load", "Gentle daytime recovery"],
   },
   rhythm: {
-    name: "kyne rhythm",
+    name: "kyne night",
     time: "night",
     tagline: "Quiet the system, restore the night, and wake feeling fully yours again.",
     route: "/rhythm",
