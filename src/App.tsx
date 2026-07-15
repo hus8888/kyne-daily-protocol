@@ -14,6 +14,25 @@ import Quiz from "./pages/Quiz.tsx";
 import LinePage from "./pages/LinePage.tsx";
 import Compare from "./pages/Compare.tsx";
 import Bundles from "./pages/Bundles.tsx";
+import About from "./pages/About.tsx";
+import Science from "./pages/Science.tsx";
+import Contact from "./pages/Contact.tsx";
+import Quality from "./pages/Quality.tsx";
+import Ingredients from "./pages/Ingredients.tsx";
+import Terms from "./pages/Terms.tsx";
+import Privacy from "./pages/Privacy.tsx";
+import CompareCapsules from "./pages/CompareCapsules.tsx";
+import CompareAG1 from "./pages/CompareAG1.tsx";
+import CompareThorne from "./pages/CompareThorne.tsx";
+import Reviews from "./pages/Reviews.tsx";
+import Ambassador from "./pages/Ambassador.tsx";
+import Refer from "./pages/Refer.tsx";
+import Track from "./pages/Track.tsx";
+import Returns from "./pages/Returns.tsx";
+import Shipping from "./pages/Shipping.tsx";
+import Impact from "./pages/Impact.tsx";
+import Accessibility from "./pages/Accessibility.tsx";
+import Cookies from "./pages/Cookies.tsx";
 
 const queryClient = new QueryClient();
 
@@ -41,7 +60,31 @@ const App = () => (
             <Route path="/peptide" element={<LinePage />} />
             {/* comparison + bundles */}
             <Route path="/compare" element={<Compare />} />
+            <Route path="/compare/capsules" element={<CompareCapsules />} />
+            <Route path="/compare/ag1" element={<CompareAG1 />} />
+            <Route path="/compare/athletic-greens" element={<CompareAG1 />} />
+            <Route path="/compare/thorne" element={<CompareThorne />} />
             <Route path="/bundles" element={<Bundles />} />
+            {/* company + info */}
+            <Route path="/about" element={<About />} />
+            <Route path="/science" element={<Science />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/quality" element={<Quality />} />
+            <Route path="/ingredients" element={<Ingredients />} />
+            <Route path="/reviews" element={<Reviews />} />
+            {/* programs */}
+            <Route path="/ambassador" element={<Ambassador />} />
+            <Route path="/refer" element={<Refer />} />
+            {/* operational */}
+            <Route path="/track" element={<Track />} />
+            <Route path="/returns" element={<Returns />} />
+            <Route path="/shipping" element={<Shipping />} />
+            <Route path="/impact" element={<Impact />} />
+            {/* legal */}
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/accessibility" element={<Accessibility />} />
+            <Route path="/cookies" element={<Cookies />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
