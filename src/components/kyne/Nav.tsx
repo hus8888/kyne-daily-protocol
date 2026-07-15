@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const links = [
-  { href: "#protocol", label: "Protocol" },
+  { href: "#pepi", label: "PEPI" },
   { href: "#system", label: "System" },
-  { href: "#science", label: "Science" },
-  { href: "#pricing", label: "Pricing" },
+  { href: "/science", label: "Science", isRoute: true },
+  { href: "/compare", label: "Compare", isRoute: true },
+  { href: "/story", label: "Our Story", isRoute: true },
+  { href: "/blog", label: "Journal", isRoute: true },
+  { href: "/faq", label: "FAQ", isRoute: true },
 ];
 
 export const Nav = () => {
@@ -38,15 +41,25 @@ export const Nav = () => {
           </a>
 
           <div className="hidden items-center gap-8 md:flex">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {l.label}
-              </a>
-            ))}
+            {links.map((l) =>
+              l.isRoute ? (
+                <Link
+                  key={l.href}
+                  to={l.href}
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {l.label}
+                </Link>
+              ) : (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {l.label}
+                </a>
+              )
+            )}
             <Link
               to="/quiz"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"

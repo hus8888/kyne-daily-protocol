@@ -33,6 +33,10 @@ import Shipping from "./pages/Shipping.tsx";
 import Impact from "./pages/Impact.tsx";
 import Accessibility from "./pages/Accessibility.tsx";
 import Cookies from "./pages/Cookies.tsx";
+import FAQ from "./pages/FAQ.tsx";
+import Story from "./pages/Story.tsx";
+import Blog from "./pages/Blog.tsx";
+import BlogPost from "./pages/BlogPost.tsx";
 
 const queryClient = new QueryClient();
 
@@ -67,7 +71,11 @@ const App = () => (
             <Route path="/bundles" element={<Bundles />} />
             {/* company + info */}
             <Route path="/about" element={<About />} />
+            <Route path="/story" element={<Story />} />
             <Route path="/science" element={<Science />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/quality" element={<Quality />} />
             <Route path="/ingredients" element={<Ingredients />} />
