@@ -37,6 +37,7 @@ import FAQ from "./pages/FAQ.tsx";
 import Story from "./pages/Story.tsx";
 import Blog from "./pages/Blog.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
+import Research from "./pages/Research.tsx";
 
 const queryClient = new QueryClient();
 
@@ -73,6 +74,7 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/story" element={<Story />} />
             <Route path="/science" element={<Science />} />
+            <Route path="/research" element={<Research />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
