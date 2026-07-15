@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer className="border-t border-border bg-surface/60 py-16">
@@ -10,29 +12,45 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-12 text-sm">
+          <div className="grid grid-cols-2 gap-12 text-sm sm:grid-cols-4">
             <div className="space-y-3">
               <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                System
+                Shop
               </div>
-              <a className="block text-foreground/80 hover:text-foreground" href="#system">Morning</a>
-              <a className="block text-foreground/80 hover:text-foreground" href="#system">Day</a>
-              <a className="block text-foreground/80 hover:text-foreground" href="#system">Night</a>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/bundles">Bundles</Link>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/compare">Compare</Link>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/ingredients">Ingredients</Link>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/quiz">Find your protocol</Link>
             </div>
             <div className="space-y-3">
               <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                 Company
               </div>
-              <a className="block text-foreground/80 hover:text-foreground" href="#">Science</a>
-              <a className="block text-foreground/80 hover:text-foreground" href="#">Journal</a>
-              <a className="block text-foreground/80 hover:text-foreground" href="#">Contact</a>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/about">About</Link>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/science">Science</Link>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/quality">Quality</Link>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/reviews">Reviews</Link>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/impact">Impact</Link>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/contact">Contact</Link>
+            </div>
+            <div className="space-y-3">
+              <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+                Support
+              </div>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/track">Track order</Link>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/shipping">Shipping</Link>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/returns">Returns</Link>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/ambassador">Ambassador</Link>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/refer">Refer a friend</Link>
             </div>
             <div className="space-y-3">
               <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                 Legal
               </div>
-              <a className="block text-foreground/80 hover:text-foreground" href="#">Terms</a>
-              <a className="block text-foreground/80 hover:text-foreground" href="#">Privacy</a>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/terms">Terms</Link>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/privacy">Privacy</Link>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/cookies">Cookies</Link>
+              <Link className="block text-foreground/80 hover:text-foreground" to="/accessibility">Accessibility</Link>
             </div>
           </div>
         </div>
