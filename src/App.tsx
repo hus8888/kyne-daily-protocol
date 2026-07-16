@@ -39,6 +39,7 @@ import Blog from "./pages/Blog.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
 import Research from "./pages/Research.tsx";
 import Signature from "./pages/Signature.tsx";
+import OAuthCallback from "./pages/OAuthCallback.tsx";
 
 const queryClient = new QueryClient();
 
@@ -97,6 +98,7 @@ const App = () => (
             <Route path="/accessibility" element={<Accessibility />} />
             <Route path="/cookies" element={<Cookies />} />
             <Route path="/signature" element={<Signature />} />
+            <Route path="/oauth/callback" element={<OAuthCallback />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
