@@ -7,28 +7,43 @@ import { useState } from "react";
 type Ing = { name: string; dose: string; lines: string[]; window: string; mech: string };
 
 const INGREDIENTS: Ing[] = [
-  { name: "Vitamin D3 (cholecalciferol)", dose: "2000–4000 IU", lines: ["d3+k","core"], window: "AM", mech: "Steroid hormone precursor; nuclear-receptor signaling for calcium/immune homeostasis." },
-  { name: "Vitamin K2 (MK-7)", dose: "100–180 mcg", lines: ["d3+k","age"], window: "N", mech: "Activates osteocalcin and matrix-Gla protein; directs calcium to bone and away from soft tissue." },
-  { name: "Magnesium Bisglycinate", dose: "100–200 mg", lines: ["d3+k","mind","nerve"], window: "N", mech: "Glycine-chelated magnesium; cofactor for >300 enzymes; GABA-A modulator at night." },
-  { name: "Boron (sodium borate)", dose: "3–5 mg", lines: ["d3+k","age"], window: "N", mech: "Modulates steroid hormone half-life; supports bone mineralization." },
-  { name: "L-Glutamine", dose: "200 mg", lines: ["gut"], window: "N", mech: "Primary fuel for enterocytes; supports tight-junction integrity." },
-  { name: "Zinc Carnosine", dose: "37.5 mg", lines: ["gut"], window: "N", mech: "Mucosal-protective chelate; clinically validated for gastric lining repair." },
-  { name: "Decolorized Aloe Vera", dose: "50 mg", lines: ["gut"], window: "N", mech: "Acemannan-rich polysaccharide; soothes mucosa without anthraquinones." },
-  { name: "Lion's Mane (8:1 extract)", dose: "100 mg", lines: ["mind"], window: "AM/N", mech: "Hericenones and erinacines stimulate NGF and BDNF pathways." },
-  { name: "Phosphatidylserine (sunflower)", dose: "100 mg", lines: ["mind"], window: "N", mech: "Phospholipid building-block; modulates evening cortisol." },
-  { name: "L-Theanine", dose: "100–200 mg", lines: ["mind","core"], window: "AM/D", mech: "Alpha-wave EEG signature; reduces caffeine jitter without sedation." },
-  { name: "Niagen® Nicotinamide Riboside (NR)", dose: "100 mg", lines: ["mito","age"], window: "AM/D/N", mech: "NAD+ precursor; supports mitochondrial sirtuin and SIRT3 activity." },
-  { name: "Shilajit (PrimaVie®)", dose: "100 mg", lines: ["mito"], window: "N", mech: "Fulvic-acid complex; CoQ10 cofactor; mitochondrial bioenergetics." },
-  { name: "Ubiquinol (Kaneka QH®, nano)", dose: "50 mg", lines: ["mito","age"], window: "N", mech: "Reduced form of CoQ10; electron transport chain Complex I/III." },
-  { name: "PharmaGABA®", dose: "200 mg", lines: ["nerve"], window: "N", mech: "Naturally-fermented GABA; vagal-tone calming via sublingual route." },
-  { name: "Methylcobalamin (B12)", dose: "500–1000 mcg", lines: ["nerve","mito"], window: "AM", mech: "Methyl-donor coenzyme; myelin synthesis; sublingual is the gold standard." },
-  { name: "Honokiol (magnolia bark)", dose: "30–50 mg", lines: ["core"], window: "N", mech: "GABA-A modulator; anxiolytic without sedation hangover." },
-  { name: "Melatonin", dose: "0.3 mg", lines: ["core"], window: "N", mech: "Physiologic dose matching natural pineal output; chronobiotic, not sedative." },
-  { name: "Glycine", dose: "200 mg", lines: ["core"], window: "N", mech: "Inhibitory amino acid; lowers core body temperature for sleep onset." },
-  { name: "Spermidine (wheat-germ)", dose: "3 mg", lines: ["age"], window: "N", mech: "Polyamine; induces autophagy via TFEB pathway." },
-  { name: "S-Acetyl Glutathione (Setria®)", dose: "75 mg", lines: ["age"], window: "N", mech: "Acetylated glutathione; sublingual-stable; master antioxidant." },
-  { name: "Quercetin Phytosome", dose: "75 mg", lines: ["age"], window: "N", mech: "Flavonoid; senolytic activity in combination with fisetin." },
-  { name: "Caffeine (anhydrous, low-dose)", dose: "40 mg", lines: ["core"], window: "AM", mech: "Adenosine A1/A2A antagonist at 1/3 the dose of coffee." },
+  // d3+k
+  { name: "Vitamin D3 (cholecalciferol)", dose: "2500–5000 IU", lines: ["d3+k"], window: "AM/D/N", mech: "Steroid hormone precursor; nuclear-receptor signaling for calcium absorption, immune homeostasis, and mood regulation. Potent at microgram scale — ideal strip active." },
+  { name: "Vitamin K2-MK7 (MenaQ7®)", dose: "100–200 mcg", lines: ["d3+k"], window: "AM/D/N", mech: "Activates osteocalcin and matrix-Gla protein; directs calcium to bone and away from arterial soft tissue. Works synergistically with D3." },
+  // core
+  { name: "KSM-66 Ashwagandha", dose: "300 mg", lines: ["core"], window: "AM", mech: "Clinically validated full-spectrum root extract. Withanolides are lipophilic — strong buccal absorption. Supports cortisol balance and sustained energy without stimulants." },
+  { name: "L-Tyrosine", dose: "200 mg", lines: ["core","mind"], window: "AM", mech: "Catecholamine precursor. Converts to dopamine and norepinephrine — supporting motivation, cognitive endurance, and drive under load." },
+  { name: "SHR-5 Rhodiola rosea", dose: "200 mg", lines: ["core","mind"], window: "D", mech: "Standardized to rosavins and salidroside. Adaptogenic HPA axis modulation; supports mental endurance and cortisol smoothing." },
+  { name: "Phosphatidylserine (sunflower)", dose: "100 mg", lines: ["core","mind"], window: "D/N", mech: "Phospholipid building block for neuronal membranes. Modulates evening cortisol. Emulsified in lipophilic PEPI layer." },
+  { name: "Magnesium Glycinate", dose: "200 mg compound (~28 mg elemental)", lines: ["core","d3+k","mind","nerve"], window: "N", mech: "Strip-feasible form of magnesium. 2023 RCT meta-analysis (n=2,132) shows 200–400mg elemental reduces sleep onset latency ~17 min. Replaces Magtein across all night variants." },
+  { name: "Apigenin", dose: "50 mg", lines: ["core","mind"], window: "N", mech: "Chamomile-derived flavonoid. Binds gently to benzodiazepine receptors. Low mass, high buccal compatibility, no sedation hangover." },
+  { name: "Glycine", dose: "100 mg", lines: ["core","mito"], window: "N", mech: "Inhibitory amino acid that lowers core body temperature — the physiological trigger for sleep onset. Collagen synthesis cofactor." },
+  { name: "Methylcobalamin (B12)", dose: "500–1000 mcg", lines: ["nerve","core"], window: "AM", mech: "Active methyl form of B12. Sublingual absorption matches injection-route bioavailability. Myelin synthesis and homocysteine regulation. Tiny mass, strips perfectly." },
+  // gut
+  { name: "Theracurmin® Curcumin", dose: "90 mg (nano-emulsion)", lines: ["gut","age"], window: "AM/D", mech: "Nano-emulsion curcumin with 6x oral bioavailability vs standard. Anti-inflammatory via NF-kB pathway. Integrates well in lipophilic PEPI layer." },
+  { name: "Dihydroberberine (DHB)", dose: "200 mg", lines: ["gut","age"], window: "D", mech: "Reduced metabolite of berberine. Uncharged tertiary amine — buccal viable unlike berberine HCl. 200mg DHB produces greater plasma berberine AUC than 500mg standard berberine (PMC 2021 RCT). AMPK activator; glycemic and microbiome support." },
+  { name: "Zinc Carnosine", dose: "37.5–75 mg", lines: ["gut"], window: "AM/N", mech: "Zinc-carnosine chelate that adheres strongly to gastric mucosa. Clinically validated for mucosal lining repair, tight-junction upregulation, and NSAID-damage protection at 75mg twice daily." },
+  { name: "DGL Licorice Extract", dose: "150 mg", lines: ["gut"], window: "N", mech: "Deglycyrrhizinated licorice — glycyrrhizin removed to eliminate blood-pressure concern. Stimulates mucus-producing cells for overnight mucosal protection. Low mass, strip compatible." },
+  { name: "Quercetin", dose: "150 mg", lines: ["gut","age"], window: "AM/N", mech: "Polyphenol flavonoid. Tight-junction support, anti-inflammatory, and senolytic activity in combination protocols. Strip feasible at this dose." },
+  // mind
+  { name: "Lion's Mane 8:1 Extract", dose: "150 mg (equiv ~1.2g raw)", lines: ["mind"], window: "AM/N", mech: "Standardized fruiting body extract. Hericenones and erinacines stimulate NGF and BDNF synthesis. 8:1 concentration keeps strip payload practical. 250mg/day raw equivalent showed cognitive improvement in 16-week RCT." },
+  { name: "Alpha-GPC (Cognizin®)", dose: "150–300 mg", lines: ["mind","nerve"], window: "AM", mech: "Cholinergic precursor with ODF sublingual market precedent. Highly hygroscopic — requires foil packaging and moisture control. 300mg in mind-morning; 150mg in nerve-morning." },
+  { name: "Bacognize® Bacopa monnieri", dose: "300 mg", lines: ["mind"], window: "D", mech: "Standardized bacosides extract for memory consolidation and synaptic plasticity. Cumulative benefits over 8–12 weeks of consistent daily use." },
+  { name: "L-Theanine", dose: "100–150 mg", lines: ["core","mind","nerve"], window: "D/N", mech: "Alpha-wave EEG signature. High buccal absorption, taste neutral, fast onset. One of the best strip-native actives. 150mg in core-day; 100mg in mind-day, nerve-night, core-night." },
+  // mito
+  { name: "NMN (nicotinamide mononucleotide)", dose: "300 mg", lines: ["mito"], window: "AM", mech: "NAD+ precursor with real buccal advantage — hepatic first-pass bypass. 300mg/day shows statistically significant blood NAD+ increase at day 30 and 60 in RCTs. Monitor FDA regulatory status." },
+  { name: "PQQ (pyrroloquinoline quinone)", dose: "20 mg", lines: ["mito"], window: "AM", mech: "Mitochondrial biogenesis cofactor. Potent at low mass — excellent strip active. Supports PGC-1alpha pathway and mitochondrial density." },
+  { name: "CoQ10 / Ubiquinol (Kaneka QH®)", dose: "100 mg", lines: ["mito"], window: "AM/N", mech: "Reduced form of CoQ10. Electron transport chain Complex I/III. Lipophilic — delivered in PEPI lipid layer. Buccal route dramatically improves on ~3% oral bioavailability." },
+  { name: "Mitopure® Urolithin A", dose: "500 mg", lines: ["mito"], window: "D", mech: "Clinical evidence floor is 500mg/day. Induces mitophagy via PINK1/Parkin pathway. Single-hero strip — uncompromised dose. Amazentis OTF licensing must be confirmed before production." },
+  { name: "ALCAR (acetyl-L-carnitine)", dose: "200 mg", lines: ["mito"], window: "N", mech: "Mitochondrial fatty acid transport cofactor. Acetyl group supports acetylcholine synthesis. Dosed at 200mg in night stack to maintain payload headroom." },
+  // nerve
+  { name: "Levagen+® PEA", dose: "300 mg", lines: ["nerve"], window: "D", mech: "Palmitoylethanolamide. Endocannabinoid-adjacent signaling; anti-inflammatory and neuroprotective. Co-micronized form has enhanced absorption. Strip feasible at 300mg." },
+  { name: "Pharma-GABA®", dose: "100 mg", lines: ["nerve"], window: "N", mech: "Naturally-fermented GABA (Pharma Foods International). Evidence-supported range for stress/calm: 2–100mg. Reduced from 500mg — no clinical evidence for that dose. Buccal route may engage vagal-tone pathway." },
+  { name: "P5P (pyridoxal-5-phosphate)", dose: "50 mg", lines: ["nerve"], window: "N", mech: "Active form of B6. Essential cofactor for GABA, serotonin, and dopamine synthesis. Low mass, strip compatible." },
+  // age
+  { name: "Resvida® Resveratrol", dose: "150 mg", lines: ["age"], window: "AM", mech: "Pharmaceutical-grade trans-resveratrol. SIRT1 activator. Buccal route bypasses near-total hepatic first-pass — 150mg buccal likely rivals 500mg+ oral for systemic exposure." },
+  { name: "Setria® Glutathione", dose: "250 mg", lines: ["age"], window: "N", mech: "The standout active in the portfolio for strip format. Orobuccal absorption >80% vs <10% oral. 250mg/day Setria increased whole blood glutathione by 17% at 6 months in published RCT. Master antioxidant and detoxification cofactor." },
+  { name: "Spermidine", dose: "1 mg", lines: ["age"], window: "N", mech: "Polyamine autophagy activator via TFEB pathway. Micro-dose active — ideal strip ingredient. Emerging longevity evidence. Sourced from wheat-germ extract (Holoprotein or Biomvita)." },
 ];
 
 const ALL_LINES = ["all","core","d3+k","gut","mind","mito","nerve","age"];

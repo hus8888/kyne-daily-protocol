@@ -10,32 +10,30 @@ const Signal = () => (
     badge="Morning protocol · 01"
     cta="start your morning protocol"
     metrics={[
-      { v: "75 mg", l: "L-theanine" },
+      { v: "300 mg", l: "ashwagandha" },
       { v: "20s", l: "dissolve" },
       { v: "~10m", l: "onset" },
     ]}
     benefits={[
-      { n: "01", title: "steady energy", body: "A clean lift that climbs gently — no spike, no crash." },
-      { n: "02", title: "calm focus", body: "Alert without being wired. Built for the first deep work block of the day." },
-      { n: "03", title: "replaces the second coffee", body: "Most users find one cup is plenty by the second week." },
+      { n: "01", title: "grounded energy", body: "KSM-66 ashwagandha supports cortisol balance so your energy climbs cleanly — no spike, no crash." },
+      { n: "02", title: "calm focus", body: "L-tyrosine fuels dopamine pathways. Alert, motivated, without being wired." },
+      { n: "03", title: "sharp from the first hour", body: "Methylcobalamin B12 via buccal route matches the profile of the gold-standard injection — absorbed in seconds." },
     ]}
     steps={[
       { n: "01", title: "dissolves on tongue", body: "One thin strip. Gone in seconds, no water required." },
-      { n: "02", title: "bypasses digestion", body: "Sublingual delivery routes ingredients directly into circulation." },
-      { n: "03", title: "calmly turns on", body: "A gentle climb begins within minutes — not the sudden hit of caffeine." },
+      { n: "02", title: "bypasses digestion", body: "Sublingual delivery routes ingredients directly into circulation — no first-pass, no gut delay." },
+      { n: "03", title: "settles in", body: "A steady, grounded lift begins within minutes. Not wired — just on." },
     ]}
     ingredients={[
-      { name: "L-Theanine", dose: "75 mg", body: "Quiets the over-active mind, smoothing the edges of natural alertness." },
-      { name: "Caffeine (microdose)", dose: "40 mg", body: "About one third of a coffee — enough to lift, not enough to spike." },
-      { name: "Methyl B12", dose: "500 mcg", body: "Supports cellular energy production and clear, sustained mental output." },
-      { name: "Tyrosine", dose: "150 mg", body: "Precursor to dopamine — supports motivation and cognitive endurance." },
-      { name: "Lion's Mane", dose: "100 mg", body: "Adaptogen for clean, long-arc cognitive support throughout the morning." },
-      { name: "Vitamin D3", dose: "1000 IU", body: "Daily baseline support for mood, immunity and energy regulation." },
+      { name: "KSM-66 Ashwagandha", dose: "300 mg", body: "Clinically validated adaptogen. Buccal delivery of withanolides bypasses gut degradation. Supports cortisol balance and sustained energy without stimulants." },
+      { name: "L-Tyrosine", dose: "200 mg", body: "Catecholamine precursor. Converts to dopamine and norepinephrine — supporting motivation, focus, and cognitive endurance under load." },
+      { name: "Methylcobalamin B12", dose: "500 mcg", body: "Active form of B12. Sublingual absorption matches injection-route bioavailability. Essential for myelin integrity and cellular energy." },
+      { name: "Riboflavin (B2)", dose: "1.6 mg", body: "Cofactor for cellular energy conversion. Supports the mitochondrial pathways that power the morning." },
     ]}
     experience={[
-      { time: "T + 0:00", label: "dissolve", body: "Strip placed. Bright, citrus sensation on the tongue." },
-      { time: "T + 0:08", label: "lift", body: "A gentle wave of clarity arrives — no jitters." },
-      { time: "T + 0:30", label: "lock in", body: "Fully present. Ready for whatever the morning asks." },
+      { time: "T + 0:00", label: "dissolve", body: "Strip placed. Clean, mild herbal note on the tongue." },
+      { time: "T + 0:10", label: "settle", body: "A grounded clarity arrives — steady, not sharp." },
+      { time: "T + 0:30", label: "lock in", body: "Fully present. Cortisol balanced. Ready for whatever the morning asks." },
     ]}
   />
 );

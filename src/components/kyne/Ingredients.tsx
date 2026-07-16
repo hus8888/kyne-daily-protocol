@@ -1,33 +1,33 @@
 const ingredients = [
   {
-    name: "L-Theanine",
-    benefit: "calm, focused alertness",
-    why: "Sublingual delivery bypasses first-pass metabolism, preserving full activity.",
+    name: "Setria® Glutathione",
+    benefit: "master antioxidant + longevity",
+    why: "Orobuccal absorption >80% vs <10% oral. The best-fit active in the entire portfolio for strip format.",
   },
   {
-    name: "CoQ10",
-    benefit: "cellular energy production",
-    why: "Notoriously poorly absorbed orally. Strip format dramatically improves uptake.",
+    name: "NMN 300mg",
+    benefit: "NAD+ precursor + cellular energy",
+    why: "Buccal delivery bypasses hepatic first-pass — the real advantage over capsules for NAD+ precursors.",
   },
   {
-    name: "Methyl B12",
-    benefit: "cognitive & neural support",
-    why: "Direct mucosal absorption matches the gold-standard injection profile.",
+    name: "Methylcobalamin B12",
+    benefit: "neural support + myelin integrity",
+    why: "Sublingual absorption matches the gold-standard injection profile. Tiny mass, instant delivery.",
+  },
+  {
+    name: "Dihydroberberine (DHB)",
+    benefit: "glycemic + microbiome support",
+    why: "200mg DHB delivers greater plasma berberine than 500mg standard berberine. Buccal-native unlike berberine HCl.",
+  },
+  {
+    name: "KSM-66 Ashwagandha",
+    benefit: "cortisol balance + sustained energy",
+    why: "Withanolides are lipophilic — strong transmucosal absorption without gut degradation.",
   },
   {
     name: "Magnesium Glycinate",
-    benefit: "recovery & nervous system",
-    why: "Avoids GI distress common with oral magnesium dosing.",
-  },
-  {
-    name: "Adaptogen Complex",
-    benefit: "stress & cortisol balance",
-    why: "Active compounds delivered intact, with predictable onset.",
-  },
-  {
-    name: "Glycine + GABA",
-    benefit: "deep, restorative sleep",
-    why: "Crosses faster, acts cleaner — without next-day residue.",
+    benefit: "sleep onset + nervous system",
+    why: "Strip-feasible form of magnesium. RCT-backed sleep support without the GI distress of other forms.",
   },
 ];
 

@@ -57,9 +57,9 @@ export const LINES: ProductLine[] = [
     pricePerMonth: 54,
     flagship: true,
     actives: [
-      "Morning: caffeine + L-theanine + B-complex",
-      "Day: adaptogen + electrolyte blend",
-      "Night: magnesium L-threonate + L-theanine + glycine",
+      "Morning: KSM-66 Ashwagandha 300mg + L-tyrosine 200mg + Methylcobalamin 500mcg",
+      "Day: SHR-5 Rhodiola 200mg + L-theanine 150mg + Phosphatidylserine 100mg",
+      "Night: Magnesium glycinate 200mg + Apigenin 50mg + L-theanine 100mg",
     ],
     variants: [
       {
@@ -69,7 +69,7 @@ export const LINES: ProductLine[] = [
         window: "morning",
         name: "Signal",
         focus: "Clean activation to start the day",
-        ingredients: ["Caffeine (natural)", "L-theanine", "B-complex", "Tyrosine"],
+        ingredients: ["KSM-66 Ashwagandha 300mg", "L-tyrosine 200mg", "Methylcobalamin B12 500mcg", "Riboflavin (B2) 1.6mg"],
       },
       {
         id: "shift",
@@ -78,7 +78,7 @@ export const LINES: ProductLine[] = [
         window: "day",
         name: "Shift",
         focus: "Sustained focus without the crash",
-        ingredients: ["Rhodiola", "Electrolytes", "Panax ginseng", "B12"],
+        ingredients: ["SHR-5 Rhodiola rosea 200mg", "L-theanine 150mg", "Phosphatidylserine 100mg"],
       },
       {
         id: "rhythm",
@@ -87,7 +87,7 @@ export const LINES: ProductLine[] = [
         window: "night",
         name: "Rhythm",
         focus: "Wind down and deepen sleep",
-        ingredients: ["Magnesium L-threonate", "L-theanine", "Glycine", "Apigenin"],
+        ingredients: ["Magnesium glycinate 200mg", "Apigenin 50mg", "L-theanine 100mg", "Glycine 100mg"],
       },
     ],
   },
@@ -100,7 +100,7 @@ export const LINES: ProductLine[] = [
       "Clinical-dose vitamin D3 paired with K2 (MK-7) for calcium routing and immune, bone, and cardiovascular support.",
     color: "#EAB308",
     pricePerMonth: 39,
-    actives: ["Vitamin D3 5000 IU", "Vitamin K2 (MK-7) 200µg"],
+    actives: ["Vitamin D3 5000 IU", "Vitamin K2-MK7 (MenaQ7) 200mcg"],
     variants: [
       {
         id: "d3k-morning",
@@ -109,7 +109,7 @@ export const LINES: ProductLine[] = [
         window: "morning",
         name: "D3+K — Morning",
         focus: "Fat-soluble uptake with your first meal",
-        ingredients: ["Vitamin D3 5000 IU", "Vitamin K2 MK-7 200µg"],
+        ingredients: ["Vitamin D3 5000 IU", "Vitamin K2-MK7 (MenaQ7) 200mcg"],
       },
       {
         id: "d3k-day",
@@ -118,7 +118,7 @@ export const LINES: ProductLine[] = [
         window: "day",
         name: "D3+K — Day",
         focus: "Midday top-up",
-        ingredients: ["Vitamin D3 2000 IU", "Vitamin K2 MK-7 100µg"],
+        ingredients: ["Vitamin D3 2500 IU", "Vitamin K2-MK7 (MenaQ7) 100mcg"],
       },
       {
         id: "d3k-night",
@@ -126,8 +126,8 @@ export const LINES: ProductLine[] = [
         line: "kyne d3+k",
         window: "night",
         name: "D3+K — Night",
-        focus: "Evening maintenance dose",
-        ingredients: ["Vitamin D3 2000 IU", "Vitamin K2 MK-7 100µg"],
+        focus: "Evening maintenance with sleep support",
+        ingredients: ["Vitamin D3 2500 IU", "Vitamin K2-MK7 (MenaQ7) 100mcg", "Magnesium glycinate 200mg"],
       },
     ],
   },
@@ -137,14 +137,14 @@ export const LINES: ProductLine[] = [
     category: "Gut Health / Microbiome",
     tagline: "Systemic anti-inflammatory and glycemic support.",
     description:
-      "Curcumin and berberine at bioavailable multiples, with zinc-carnosine and L-glutamine. Positioned as systemic anti-inflammatory + glycemic support via mucosal delivery.",
+      "Theracurmin curcumin and dihydroberberine at bioavailable multiples, with zinc-carnosine, DGL licorice, and quercetin for systemic anti-inflammatory, glycemic, and mucosal support via buccal delivery.",
     color: "#EA580C",
     pricePerMonth: 54,
     actives: [
-      "Theracurmin® curcumin (6× bioavailability)",
-      "Berberine (11×)",
-      "Zinc-carnosine",
-      "L-glutamine",
+      "Theracurmin® curcumin 90mg (nano-emulsion, 6× bioavailability)",
+      "Dihydroberberine (DHB) 200mg — strip-native replacement for berberine",
+      "Zinc carnosine 75mg",
+      "DGL licorice extract 150mg + Quercetin 150mg",
     ],
     variants: [
       {
@@ -153,8 +153,8 @@ export const LINES: ProductLine[] = [
         line: "kyne gut",
         window: "morning",
         name: "Gut — Morning",
-        focus: "Glycemic control before your first meal",
-        ingredients: ["Berberine", "Theracurmin® curcumin"],
+        focus: "Mucosal protection and anti-inflammation",
+        ingredients: ["Theracurmin® curcumin 90mg", "Zinc carnosine 75mg"],
       },
       {
         id: "gut-day",
@@ -162,8 +162,8 @@ export const LINES: ProductLine[] = [
         line: "kyne gut",
         window: "day",
         name: "Gut — Day",
-        focus: "Anti-inflammatory support",
-        ingredients: ["Theracurmin® curcumin", "Zinc-carnosine"],
+        focus: "Glycemic and metabolic support",
+        ingredients: ["Dihydroberberine (DHB) 200mg"],
       },
       {
         id: "gut-night",
@@ -171,8 +171,8 @@ export const LINES: ProductLine[] = [
         line: "kyne gut",
         window: "night",
         name: "Gut — Night",
-        focus: "Overnight repair support",
-        ingredients: ["L-glutamine", "Zinc-carnosine"],
+        focus: "Overnight mucosal repair",
+        ingredients: ["DGL licorice extract 150mg", "Zinc carnosine 37.5mg", "Quercetin 150mg"],
       },
     ],
   },
@@ -182,14 +182,14 @@ export const LINES: ProductLine[] = [
     category: "Mental Fitness",
     tagline: "Focus, memory, and cognitive drive.",
     description:
-      "Lion's mane, Cognizin® citicoline (alpha-GPC), Bacognize® bacopa, and rhodiola for focus, memory consolidation, and stress-resilient cognition.",
+      "Lion's mane 8:1 extract, Alpha-GPC (Cognizin), Bacognize® bacopa, and rhodiola for focus, memory consolidation, and stress-resilient cognition. Standardized extracts keep every active within strip payload limits.",
     color: "#0891B2",
     pricePerMonth: 59,
     actives: [
-      "Lion's mane (2–3×)",
-      "Cognizin® / Alpha-GPC",
-      "Bacognize® bacopa (2×)",
-      "Rhodiola (SHR-5)",
+      "Lion's mane 8:1 extract 150mg (equiv ~1.2g raw)",
+      "Alpha-GPC (Cognizin) 300mg",
+      "Bacognize® Bacopa 300mg",
+      "SHR-5 Rhodiola 200mg",
     ],
     variants: [
       {
@@ -199,7 +199,7 @@ export const LINES: ProductLine[] = [
         window: "morning",
         name: "Mind — Morning",
         focus: "Sharp focus and drive",
-        ingredients: ["Alpha-GPC", "Rhodiola", "Lion's mane"],
+        ingredients: ["Alpha-GPC (Cognizin) 300mg", "Lion's mane 8:1 extract 150mg"],
       },
       {
         id: "mind-day",
@@ -207,8 +207,8 @@ export const LINES: ProductLine[] = [
         line: "kyne mind",
         window: "day",
         name: "Mind — Day",
-        focus: "Sustained cognition",
-        ingredients: ["Cognizin® citicoline", "Bacopa"],
+        focus: "Sustained cognition and memory",
+        ingredients: ["Bacognize® Bacopa 300mg", "Phosphatidylserine 100mg", "L-theanine 100mg"],
       },
       {
         id: "mind-night",
@@ -216,8 +216,8 @@ export const LINES: ProductLine[] = [
         line: "kyne mind",
         window: "night",
         name: "Mind — Night",
-        focus: "Memory consolidation overnight",
-        ingredients: ["Bacognize® bacopa", "Lion's mane"],
+        focus: "Neural recovery and memory consolidation",
+        ingredients: ["Lion's mane 8:1 extract 150mg", "Magnesium glycinate 200mg", "Apigenin 50mg"],
       },
     ],
   },
@@ -227,14 +227,14 @@ export const LINES: ProductLine[] = [
     category: "Mitochondrial Health",
     tagline: "Cellular energy at the source.",
     description:
-      "Niagen® NR/NMN, Mitopure® urolithin A, PQQ, and ALCAR to support mitochondrial biogenesis and cellular energy. Urolithin A is dose-stacked with the age line (mito 50mg + age 25mg = 75mg, within AMAZ-02 trial range).",
+      "NMN 300mg, Mitopure® urolithin A 500mg, PQQ, and ALCAR for mitochondrial biogenesis and cellular energy. Buccal NMN bypasses hepatic first-pass for superior NAD+ delivery. Mitopure is dosed at the clinical evidence floor of 500mg.",
     color: "#7C3AED",
     pricePerMonth: 64,
     actives: [
-      "Niagen® NR / NMN (1.7×)",
-      "Mitopure® urolithin A (3×)",
-      "PQQ",
-      "ALCAR (2.3×)",
+      "NMN 300mg (buccal — hepatic first-pass bypass)",
+      "Mitopure® Urolithin A 500mg (clinical evidence dose)",
+      "PQQ 20mg",
+      "ALCAR 200mg",
     ],
     variants: [
       {
@@ -243,8 +243,8 @@ export const LINES: ProductLine[] = [
         line: "kyne mito",
         window: "morning",
         name: "Mito — Morning",
-        focus: "NAD+ precursor to start the day",
-        ingredients: ["Niagen® NR", "ALCAR"],
+        focus: "NAD+ stack to power the day",
+        ingredients: ["NMN 300mg", "PQQ 20mg", "CoQ10 (Kaneka QH) 100mg"],
       },
       {
         id: "mito-day",
@@ -252,8 +252,8 @@ export const LINES: ProductLine[] = [
         line: "kyne mito",
         window: "day",
         name: "Mito — Day",
-        focus: "Sustained cellular energy",
-        ingredients: ["Mitopure® urolithin A 50mg", "PQQ"],
+        focus: "Mitophagy and cellular cleanup",
+        ingredients: ["Mitopure® Urolithin A 500mg"],
       },
       {
         id: "mito-night",
@@ -262,7 +262,7 @@ export const LINES: ProductLine[] = [
         window: "night",
         name: "Mito — Night",
         focus: "Overnight mitochondrial repair",
-        ingredients: ["PQQ", "ALCAR"],
+        ingredients: ["CoQ10 (Kaneka QH) 100mg", "ALCAR 200mg", "Glycine 100mg"],
       },
     ],
   },
@@ -272,14 +272,14 @@ export const LINES: ProductLine[] = [
     category: "Nervous System",
     tagline: "Calm, resilient, well-regulated.",
     description:
-      "GABA, magnesium L-threonate, Levagen+® PEA, and high-dose B12 to support nervous-system regulation, calm, and nerve health.",
+      "Pharma-GABA 100mg, magnesium glycinate, Levagen+® PEA, Alpha-GPC, and high-dose B12 to support nervous-system regulation, calm, and nerve health. All doses calibrated for strip payload and evidence-based ranges.",
     color: "#3B82F6",
     pricePerMonth: 54,
     actives: [
-      "GABA (3×)",
-      "Magnesium L-threonate (2×)",
-      "Levagen+® PEA (3×)",
-      "Vitamin B12 (5×)",
+      "Pharma-GABA® 100mg (fermented — buccal effective)",
+      "Magnesium glycinate 200mg",
+      "Levagen+® PEA 300mg",
+      "Methylcobalamin B12 1000mcg",
     ],
     variants: [
       {
@@ -289,7 +289,7 @@ export const LINES: ProductLine[] = [
         window: "morning",
         name: "Nerve — Morning",
         focus: "Steady, regulated start",
-        ingredients: ["Vitamin B12", "Levagen+® PEA"],
+        ingredients: ["Alpha-GPC 150mg", "Methylcobalamin B12 1000mcg"],
       },
       {
         id: "nerve-day",
@@ -298,7 +298,7 @@ export const LINES: ProductLine[] = [
         window: "day",
         name: "Nerve — Day",
         focus: "Calm focus under load",
-        ingredients: ["Magnesium L-threonate", "PEA"],
+        ingredients: ["Levagen+® PEA 300mg", "Magnesium glycinate 200mg"],
       },
       {
         id: "nerve-night",
@@ -307,7 +307,7 @@ export const LINES: ProductLine[] = [
         window: "night",
         name: "Nerve — Night",
         focus: "Deep nervous-system downshift",
-        ingredients: ["GABA", "Magnesium L-threonate"],
+        ingredients: ["Pharma-GABA® 100mg", "Magnesium glycinate 200mg", "P5P (active B6) 50mg", "L-theanine 100mg"],
       },
     ],
   },
@@ -317,14 +317,14 @@ export const LINES: ProductLine[] = [
     category: "Longevity",
     tagline: "Play the long game.",
     description:
-      "Resvida® resveratrol, berberine, Setria® glutathione, and quercetin — a senescence and healthspan protocol. Honest framing: no supplement has demonstrated human lifespan extension; this complements sleep, exercise, and diet.",
+      "Resvida® resveratrol, dihydroberberine (DHB), Setria® glutathione 250mg, and quercetin — a senescence and healthspan protocol. Glutathione via buccal route achieves >80% absorption vs <10% oral. Honest framing: no supplement has demonstrated human lifespan extension; this complements sleep, exercise, and diet.",
     color: "#059669",
     pricePerMonth: 64,
     actives: [
-      "Resvida® resveratrol (15×)",
-      "Berberine (11×)",
-      "Setria® glutathione (9×)",
-      "Quercetin (6×)",
+      "Resvida® resveratrol 150mg (buccal — first-pass bypass)",
+      "Dihydroberberine (DHB) 200mg",
+      "Setria® Glutathione 250mg (>80% buccal absorption)",
+      "Quercetin 150mg",
     ],
     variants: [
       {
@@ -333,8 +333,8 @@ export const LINES: ProductLine[] = [
         line: "kyne age",
         window: "morning",
         name: "Age — Morning",
-        focus: "Antioxidant and glycemic support",
-        ingredients: ["Resvida® resveratrol", "Berberine"],
+        focus: "Sirtuin activation and antioxidant defense",
+        ingredients: ["Resvida® resveratrol 150mg", "Quercetin 150mg"],
       },
       {
         id: "longevity-day",
@@ -342,8 +342,8 @@ export const LINES: ProductLine[] = [
         line: "kyne age",
         window: "day",
         name: "Age — Day",
-        focus: "Senolytic support + urolithin A stack",
-        ingredients: ["Quercetin", "Mitopure® urolithin A 25mg"],
+        focus: "Metabolic longevity support",
+        ingredients: ["Dihydroberberine (DHB) 200mg", "Theracurmin® curcumin 90mg"],
       },
       {
         id: "longevity-night",
@@ -351,8 +351,8 @@ export const LINES: ProductLine[] = [
         line: "kyne age",
         window: "night",
         name: "Age — Night",
-        focus: "Glutathione recycling overnight",
-        ingredients: ["Setria® glutathione", "Quercetin"],
+        focus: "Master antioxidant reset + autophagy",
+        ingredients: ["Setria® Glutathione 250mg", "Spermidine 1mg"],
       },
     ],
   },

@@ -47,12 +47,10 @@ const howSteps = [
 ];
 
 const ingredients = [
-  { name: "Melatonin", dose: "0.3 mg microdose", body: "Signals — not sedates. The dose your pineal gland actually produces, restoring rhythm without next-day fog." },
-  { name: "L-Theanine", dose: "100 mg", body: "Quiets the over-active mind. Promotes alpha-wave states associated with calm wakefulness sliding into rest." },
-  { name: "Glycine", dose: "500 mg", body: "Lowers core body temperature — the physiological signal your body uses to initiate deep sleep." },
-  { name: "Magnesium Glycinate", dose: "75 mg", body: "Relaxes the nervous system and supports the GABA pathway, without GI distress." },
-  { name: "Chamomile (Apigenin)", dose: "20 mg", body: "Binds gently to benzodiazepine receptors — a classical calming compound, refined." },
-  { name: "L-Tryptophan", dose: "50 mg", body: "The serotonin precursor your body converts into endogenous melatonin overnight." },
+  { name: "Magnesium Glycinate", dose: "200 mg compound", body: "Strip-feasible form of magnesium. 200mg compound delivers ~28mg elemental magnesium — a sleep-support dose backed by RCTs showing reduced sleep onset latency. Glycinate chelation avoids GI distress common with other forms." },
+  { name: "Apigenin", dose: "50 mg", body: "Chamomile-derived flavonoid. Binds gently to benzodiazepine receptors for calming without sedation hangover. Low mass, high buccal compatibility." },
+  { name: "L-Theanine", dose: "100 mg", body: "Quiets the over-active mind. Promotes alpha-wave states associated with calm wakefulness sliding into rest. Works synergistically with magnesium for deeper relaxation." },
+  { name: "Glycine", dose: "100 mg", body: "Inhibitory amino acid that lowers core body temperature — the physiological signal your body uses to initiate deep sleep. Supportive dose in strip format." },
 ];
 
 const experience = [
