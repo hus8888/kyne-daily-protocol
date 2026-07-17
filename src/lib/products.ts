@@ -97,7 +97,7 @@ export const LINES: ProductLine[] = [
     category: "Foundational",
     tagline: "The vitamin most people are short on — dialed in.",
     description:
-      "Clinical-dose vitamin D3 paired with K2 (MK-7) for calcium routing and immune, bone, and cardiovascular support.",
+      "Clinical-dose vitamin D3 paired with MenaQ7® K2 as MK-7 — the only K2 with documented cardiovascular and bone outcomes in clinical trials. Fat-soluble actives delivered via lipid-layer strip for optimal absorption.",
     color: "#EAB308",
     pricePerMonth: 39,
     actives: ["Vitamin D3 5000 IU", "Vitamin K2-MK7 (MenaQ7) 200mcg"],
@@ -137,7 +137,7 @@ export const LINES: ProductLine[] = [
     category: "Gut Health / Microbiome",
     tagline: "Systemic anti-inflammatory and glycemic support.",
     description:
-      "Theracurmin curcumin and dihydroberberine at bioavailable multiples, with zinc-carnosine, DGL licorice, and quercetin for systemic anti-inflammatory, glycemic, and mucosal support via buccal delivery.",
+      "Nano-emulsion curcumin, dihydroberberine, and zinc carnosine formulated for buccal delivery. Theracurmin® achieves 6× the bioavailability of standard curcumin. DHB delivers equivalent plasma berberine to 500mg berberine HCl at just 200mg — without the GI side effects.",
     color: "#EA580C",
     pricePerMonth: 54,
     actives: [
@@ -182,12 +182,12 @@ export const LINES: ProductLine[] = [
     category: "Mental Fitness",
     tagline: "Focus, memory, and cognitive drive.",
     description:
-      "Lion's mane 8:1 extract, Alpha-GPC (Cognizin), Bacognize® bacopa, and rhodiola for focus, memory consolidation, and stress-resilient cognition. Standardized extracts keep every active within strip payload limits.",
+      "Lion's mane 8:1 extract, Cognizin® Citicoline, Bacognize® bacopa, and rhodiola for focus, memory consolidation, and stress-resilient cognition. Standardized extracts keep every active within strip payload limits.",
     color: "#0891B2",
     pricePerMonth: 59,
     actives: [
       "Lion's mane 8:1 extract 150mg (equiv ~1.2g raw)",
-      "Alpha-GPC (Cognizin) 300mg",
+      "Cognizin® Citicoline 300mg",
       "Bacognize® Bacopa 300mg",
       "SHR-5 Rhodiola 200mg",
     ],
@@ -199,7 +199,7 @@ export const LINES: ProductLine[] = [
         window: "morning",
         name: "Mind — Morning",
         focus: "Sharp focus and drive",
-        ingredients: ["Alpha-GPC (Cognizin) 300mg", "Lion's mane 8:1 extract 150mg"],
+        ingredients: ["Cognizin® Citicoline 300mg", "Lion's mane 8:1 extract 150mg"],
       },
       {
         id: "mind-day",
@@ -227,12 +227,12 @@ export const LINES: ProductLine[] = [
     category: "Mitochondrial Health",
     tagline: "Cellular energy at the source.",
     description:
-      "NMN 300mg, Mitopure® urolithin A 500mg, PQQ, and ALCAR for mitochondrial biogenesis and cellular energy. Buccal NMN bypasses hepatic first-pass for superior NAD+ delivery. Mitopure is dosed at the clinical evidence floor of 500mg.",
+      "NMN 300mg, MitoPrime® Urolithin A 500mg, PQQ, and ALCAR for mitochondrial biogenesis and cellular energy. Buccal NMN bypasses hepatic first-pass for superior NAD+ delivery. MitoPrime® is dosed at the clinical evidence floor of 500mg.",
     color: "#7C3AED",
     pricePerMonth: 64,
     actives: [
       "NMN 300mg (buccal — hepatic first-pass bypass)",
-      "Mitopure® Urolithin A 500mg (clinical evidence dose)",
+      "MitoPrime® Urolithin A 500mg (clinical evidence dose)",
       "PQQ 20mg",
       "ALCAR 200mg",
     ],
@@ -253,7 +253,7 @@ export const LINES: ProductLine[] = [
         window: "day",
         name: "Mito — Day",
         focus: "Mitophagy and cellular cleanup",
-        ingredients: ["Mitopure® Urolithin A 500mg"],
+        ingredients: ["MitoPrime® Urolithin A 500mg"],
       },
       {
         id: "mito-night",
@@ -289,7 +289,7 @@ export const LINES: ProductLine[] = [
         window: "morning",
         name: "Nerve — Morning",
         focus: "Steady, regulated start",
-        ingredients: ["Alpha-GPC 150mg", "Methylcobalamin B12 1000mcg"],
+        ingredients: ["Cognizin® Citicoline 150mg", "Methylcobalamin B12 1000mcg"],
       },
       {
         id: "nerve-day",
@@ -315,7 +315,7 @@ export const LINES: ProductLine[] = [
     slug: "longevity",
     name: "kyne age",
     category: "Longevity",
-    tagline: "Play the long game.",
+    tagline: "Science-backed healthspan support.",
     description:
       "Resvida® resveratrol, dihydroberberine (DHB), Setria® glutathione 250mg, and quercetin — a senescence and healthspan protocol. Glutathione via buccal route achieves >80% absorption vs <10% oral. Honest framing: no supplement has demonstrated human lifespan extension; this complements sleep, exercise, and diet.",
     color: "#059669",
