@@ -317,11 +317,11 @@ export const LINES: ProductLine[] = [
     category: "Longevity",
     tagline: "Science-backed healthspan support.",
     description:
-      "Resvida® resveratrol, dihydroberberine (DHB), Setria® glutathione 250mg, and quercetin — a senescence and healthspan protocol. Glutathione via buccal route achieves >80% absorption vs <10% oral. Honest framing: no supplement has demonstrated human lifespan extension; this complements sleep, exercise, and diet.",
+      "Trans-resveratrol, dihydroberberine (DHB), Setria® glutathione 250mg, and quercetin — a senescence and healthspan protocol. Glutathione via buccal route achieves >80% absorption vs <10% oral. Honest framing: no supplement has demonstrated human lifespan extension; this complements sleep, exercise, and diet.",
     color: "#059669",
     pricePerMonth: 64,
     actives: [
-      "Resvida® resveratrol 150mg (buccal — first-pass bypass)",
+      "Trans-resveratrol 150mg (HPβCD-complexed, buccal — first-pass bypass)",
       "Dihydroberberine (DHB) 200mg",
       "Setria® Glutathione 250mg (>80% buccal absorption)",
       "Quercetin 150mg",
@@ -334,7 +334,7 @@ export const LINES: ProductLine[] = [
         window: "morning",
         name: "Age — Morning",
         focus: "Sirtuin activation and antioxidant defense",
-        ingredients: ["Resvida® resveratrol 150mg", "Quercetin 150mg"],
+        ingredients: ["Trans-resveratrol 150mg (HPβCD-complexed)", "Quercetin 150mg"],
       },
       {
         id: "longevity-day",
