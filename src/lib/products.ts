@@ -57,8 +57,8 @@ export const LINES: ProductLine[] = [
     pricePerMonth: 54,
     flagship: true,
     actives: [
-      "Morning: KSM-66 Ashwagandha 300mg + L-tyrosine 200mg + Methylcobalamin 500mcg",
-      "Day: SHR-5 Rhodiola 200mg + L-theanine 150mg + Phosphatidylserine 100mg",
+      "Morning: KSM-66® Ashwagandha 300mg + L-tyrosine 100mg + Methylcobalamin B12 500mcg",
+      "Day: SHR-5 Rhodiola 200mg + L-theanine 150mg + Phosphatidylserine 75mg",
       "Night: Magnesium glycinate 200mg + Apigenin 50mg + L-theanine 100mg",
     ],
     variants: [
@@ -69,7 +69,7 @@ export const LINES: ProductLine[] = [
         window: "morning",
         name: "Signal",
         focus: "Clean activation to start the day",
-        ingredients: ["KSM-66 Ashwagandha 300mg", "L-tyrosine 200mg", "Methylcobalamin B12 500mcg", "Riboflavin (B2) 1.6mg"],
+        ingredients: ["KSM-66® Ashwagandha 300mg", "L-tyrosine 100mg", "Methylcobalamin B12 500mcg", "Riboflavin (B2) 1.6mg"],
       },
       {
         id: "shift",
@@ -78,7 +78,7 @@ export const LINES: ProductLine[] = [
         window: "day",
         name: "Shift",
         focus: "Sustained focus without the crash",
-        ingredients: ["SHR-5 Rhodiola rosea 200mg", "L-theanine 150mg", "Phosphatidylserine 100mg"],
+        ingredients: ["SHR-5 Rhodiola rosea 200mg", "L-theanine 150mg", "Phosphatidylserine 75mg"],
       },
       {
         id: "rhythm",
@@ -87,7 +87,7 @@ export const LINES: ProductLine[] = [
         window: "night",
         name: "Rhythm",
         focus: "Wind down and deepen sleep",
-        ingredients: ["Magnesium glycinate 200mg", "Apigenin 50mg", "L-theanine 100mg", "Glycine 100mg"],
+        ingredients: ["Magnesium glycinate 200mg", "Apigenin 50mg", "L-theanine 100mg", "Glycine 50mg"],
       },
     ],
   },
@@ -187,8 +187,8 @@ export const LINES: ProductLine[] = [
     pricePerMonth: 59,
     actives: [
       "Lion's mane 8:1 extract 150mg (equiv ~1.2g raw)",
-      "Cognizin® Citicoline 300mg",
-      "Bacognize® Bacopa 300mg",
+      "Cognizin® Citicoline 250mg",
+      "Bacognize® Bacopa 200mg",
       "SHR-5 Rhodiola 200mg",
     ],
     variants: [
@@ -199,7 +199,7 @@ export const LINES: ProductLine[] = [
         window: "morning",
         name: "Mind — Morning",
         focus: "Sharp focus and drive",
-        ingredients: ["Cognizin® Citicoline 300mg", "Lion's mane 8:1 extract 150mg"],
+        ingredients: ["Cognizin® Citicoline 250mg", "Lion's mane 8:1 extract 150mg"],
       },
       {
         id: "mind-day",
@@ -208,7 +208,7 @@ export const LINES: ProductLine[] = [
         window: "day",
         name: "Mind — Day",
         focus: "Sustained cognition and memory",
-        ingredients: ["Bacognize® Bacopa 300mg", "Phosphatidylserine 100mg", "L-theanine 100mg"],
+        ingredients: ["Bacognize® Bacopa 200mg", "Phosphatidylserine 75mg", "L-theanine 100mg"],
       },
       {
         id: "mind-night",
@@ -244,7 +244,7 @@ export const LINES: ProductLine[] = [
         window: "morning",
         name: "Mito — Morning",
         focus: "NAD+ stack to power the day",
-        ingredients: ["NMN 300mg", "PQQ 20mg", "CoQ10 (Kaneka QH) 100mg"],
+        ingredients: ["NMN 300mg", "PQQ 20mg", "Kaneka QH® Ubiquinol 75mg"],
       },
       {
         id: "mito-day",
@@ -262,7 +262,7 @@ export const LINES: ProductLine[] = [
         window: "night",
         name: "Mito — Night",
         focus: "Overnight mitochondrial repair",
-        ingredients: ["CoQ10 (Kaneka QH) 100mg", "ALCAR 200mg", "Glycine 100mg"],
+        ingredients: ["Kaneka QH® Ubiquinol 75mg", "ALCAR 200mg", "Glycine 50mg"],
       },
     ],
   },
@@ -307,7 +307,7 @@ export const LINES: ProductLine[] = [
         window: "night",
         name: "Nerve — Night",
         focus: "Deep nervous-system downshift",
-        ingredients: ["Pharma-GABA® 100mg", "Magnesium glycinate 200mg", "P5P (active B6) 50mg", "L-theanine 100mg"],
+        ingredients: ["Pharma-GABA® 100mg", "Magnesium glycinate 150mg", "P5P (active B6) 25mg", "L-theanine 100mg"],
       },
     ],
   },
