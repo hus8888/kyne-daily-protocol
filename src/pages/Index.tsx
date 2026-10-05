@@ -1,5 +1,6 @@
 import Nav from "@/components/kyne/Nav";
 import SectionNav from "@/components/kyne/SectionNav";
+import PageDropdown from "@/components/kyne/PageDropdown";
 import Hero from "@/components/kyne/Hero";
 import Problem from "@/components/kyne/Problem";
 import Solution from "@/components/kyne/Solution";
@@ -18,6 +19,7 @@ const Index = () => {
   useScrollReveal();
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+      <PageDropdown />
       <Nav />
       <SectionNav />
       <div id="hero"><Hero /></div>

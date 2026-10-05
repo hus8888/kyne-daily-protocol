@@ -33,12 +33,12 @@ export const Nav = () => {
             scrolled ? "glass shadow-soft" : "bg-background/40 backdrop-blur-sm"
           }`}
         >
-          <a href="#" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <span className="text-lg font-semibold tracking-tightest">KYNE</span>
             <span className="hidden text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground sm:inline">
               / protocol
             </span>
-          </a>
+          </Link>
 
           <div className="hidden items-center gap-8 md:flex">
             {links.map((l) =>
