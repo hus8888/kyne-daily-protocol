@@ -1,0 +1,82 @@
+From 2400f89f7ca50623bbacfae67745857e1d4e9bbf Mon Sep 17 00:00:00 2001
+From: KYNE Bot <hus@kyne.co>
+Date: Mon, 5 Oct 2026 02:52:13 +0000
+Subject: [PATCH] Add scroll-down indicator to hero section
+
+---
+ src/components/kyne/Hero.tsx | 19 ++++++++++++++++++-
+ src/index.css                | 21 ++++++++++++++++++++-
+ 2 files changed, 38 insertions(+), 2 deletions(-)
+
+diff --git a/src/components/kyne/Hero.tsx b/src/components/kyne/Hero.tsx
+index 2c32d14..b1c51c9 100644
+--- a/src/components/kyne/Hero.tsx
++++ b/src/components/kyne/Hero.tsx
+@@ -117,9 +117,26 @@ const Hero = () => {
+           </div>
+         </div>
+ 
++        {/* scroll down indicator */}
++        <div
++          className="mt-16 flex justify-center animate-fade-up"
++          style={{ animationDelay: "540ms" }}
++        >
++          <a
++            href="#system"
++            className="group flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
++            aria-label="Scroll to product system"
++          >
++            <span className="text-xs uppercase tracking-[0.2em]">Explore</span>
++            <div className="flex h-10 w-6 items-start justify-center overflow-hidden rounded-full border border-border bg-surface/60 backdrop-blur-sm">
++              <div className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/60 animate-scroll-down" />
++            </div>
++          </a>
++        </div>
++
+         {/* hero product visual — three soft tinted orbs */}
+         <div
+-          className="relative mx-auto mt-28 max-w-5xl animate-fade-up"
++          className="relative mx-auto mt-20 max-w-5xl animate-fade-up"
+           style={{ animationDelay: "480ms" }}
+         >
+           <div className="relative mt-20 grid grid-cols-1 gap-3 sm:grid-cols-3 md:mt-24 md:gap-5">
+diff --git a/src/index.css b/src/index.css
+index 13aeb31..542dc72 100644
+--- a/src/index.css
++++ b/src/index.css
+@@ -242,12 +242,31 @@ All colors MUST be HSL.
+ /* Reduced-motion: respect user OS preference.
+    Disable continuous strip dissolve animations (particle drift + edge breathing)
+    and hide the floating particle layer entirely so nothing moves. */
++@keyframes scroll-down {
++  0%, 100% {
++    transform: translateY(0);
++    opacity: 0;
++  }
++  30%, 70% {
++    opacity: 1;
++  }
++  100% {
++    transform: translateY(20px);
++    opacity: 0;
++  }
++}
++
++.animate-scroll-down {
++  animation: scroll-down 2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
++}
++
+ @media (prefers-reduced-motion: reduce) {
+   .animate-dissolve,
+   .animate-dissolve-edge,
+   .animate-pulse-glow,
+   .animate-float,
+-  .animate-shimmer {
++  .animate-shimmer,
++  .animate-scroll-down {
+     animation: none !important;
+   }
+ 
+-- 
+2.43.0
+

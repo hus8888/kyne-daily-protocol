@@ -197,6 +197,34 @@ export default function Compare() {
           })}
         </div>
 
+        {/* Detailed comparisons */}
+        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+          <Link
+            to="/compare/capsules"
+            className="group rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary hover:shadow-lg"
+          >
+            <h3 className="text-lg font-semibold">KYNE vs. Capsules</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Side-by-side breakdown: bioavailability, onset, dosing, and why format is formula.
+            </p>
+            <span className="mt-4 inline-flex items-center text-sm font-medium" style={{ color: BRAND_GOLD }}>
+              View comparison →
+            </span>
+          </Link>
+          <Link
+            to="/compare/ag1"
+            className="group rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary hover:shadow-lg"
+          >
+            <h3 className="text-lg font-semibold">KYNE vs. AG1</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              How KYNE's targeted delivery compares to powder greens.
+            </p>
+            <span className="mt-4 inline-flex items-center text-sm font-medium" style={{ color: BRAND_GOLD }}>
+              View comparison →
+            </span>
+          </Link>
+        </div>
+
         <p className="mt-8 max-w-2xl text-xs text-muted-foreground">
           Absorption indices are relative estimates for illustration and formulation
           comparison, not clinical bioavailability measurements. Buccal delivery offers

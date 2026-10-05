@@ -1,5 +1,6 @@
 import Nav from "@/components/kyne/Nav";
 import SectionNav from "@/components/kyne/SectionNav";
+import ScrollHint from "@/components/kyne/ScrollHint";
 import Hero from "@/components/kyne/Hero";
 import Problem from "@/components/kyne/Problem";
 import Solution from "@/components/kyne/Solution";
@@ -21,6 +22,7 @@ const Index = () => {
     <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       <Nav />
       <SectionNav />
+      <ScrollHint />
       <div id="hero"><Hero /></div>
       <div id="problem" data-reveal><Problem /></div>
       <div id="solution" data-reveal><Solution /></div>
