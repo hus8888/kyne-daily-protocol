@@ -92,8 +92,8 @@ const Hero = () => {
             className="mt-8 max-w-xl text-balance text-base text-muted-foreground md:text-lg animate-fade-up"
             style={{ animationDelay: "180ms" }}
           >
-            Dissolvable strips designed for how your body actually absorbs.
-            Calm, calibrated, daily.
+            Sublingual strips that work in 90 seconds. No water, no pills, no waiting.
+            Bypass your gut. Enter your bloodstream directly.
           </p>
 
           <div
@@ -141,9 +141,9 @@ const Hero = () => {
         >
           <div className="relative mt-20 grid grid-cols-1 gap-3 sm:grid-cols-3 md:mt-24 md:gap-5">
             {[
-              { name: "morning", time: "morning", price: 38, tagline: "clean morning energy", to: "/signal", tint: "hsl(var(--signal-soft))", glow: "hsl(var(--signal) / 0.55)" },
-              { name: "day", time: "day", price: 38, tagline: "calm daytime focus", to: "/shift", tint: "hsl(var(--shift-soft))", glow: "hsl(var(--shift) / 0.5)" },
-              { name: "night", time: "night", price: 38, tagline: "fall asleep faster", to: "/rhythm", tint: "hsl(var(--rhythm-soft))", glow: "hsl(var(--rhythm) / 0.55)" },
+              { name: "morning", time: "morning", price: 49, tagline: "clean morning energy", to: "/signal", tint: "hsl(var(--signal-soft))", glow: "hsl(var(--signal) / 0.55)" },
+              { name: "day", time: "day", price: 49, tagline: "calm daytime focus", to: "/shift", tint: "hsl(var(--shift-soft))", glow: "hsl(var(--shift) / 0.5)" },
+              { name: "night", time: "night", price: 49, tagline: "fall asleep faster", to: "/rhythm", tint: "hsl(var(--rhythm-soft))", glow: "hsl(var(--rhythm) / 0.55)" },
             ].map((p, i) => (
               <Link
                 key={p.name}

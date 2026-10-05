@@ -1,22 +1,22 @@
 const tiers = [
   {
     name: "starter",
-    price: 99,
+    price: 49,
     tagline: "Begin the protocol.",
-    features: ["1 strip system (30 days)", "Choice of morning · day · night", "Onboarding guide"],
+    features: ["1 strip system (30 days)", "Choice of morning · day · night", "Digital onboarding guide", "Free shipping"],
   },
   {
     name: "core",
-    price: 149,
+    price: 99,
     tagline: "The full daily system.",
-    features: ["All 3 strip systems", "Adaptive dosing protocol", "Priority shipping", "Member protocol app"],
+    features: ["All 3 strip systems (90 strips/month)", "Morning + Day + Night protocol", "Adaptive dosing guide", "Priority support", "Member app access"],
     featured: true,
   },
   {
     name: "elite",
-    price: 199,
+    price: 149,
     tagline: "Performance, calibrated.",
-    features: ["Everything in core", "Quarterly bloodwork credits", "1:1 protocol coach", "Early access drops"],
+    features: ["Everything in core", "Monthly 1:1 protocol coaching call", "Quarterly bloodwork analysis ($300 value)", "Early access to new formulations", "Custom protocol adjustments"],
   },
 ];
 
@@ -32,6 +32,9 @@ const Pricing = () => {
           <h2 className="mt-10 font-display text-4xl font-light leading-[1.05] tracking-tightest text-foreground md:text-6xl">
             start small.<br />build a ritual.
           </h2>
+          <p className="mt-6 text-base text-muted-foreground">
+            Launching Q1 2027. Join the waitlist for early access pricing.
+          </p>
         </div>
 
         <div className="mt-20 grid gap-6 lg:grid-cols-3">
@@ -46,7 +49,7 @@ const Pricing = () => {
             >
               {t.featured && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full border border-border bg-surface-elevated px-4 py-1.5 font-mono text-[10px] uppercase tracking-[0.25em] text-foreground shadow-soft">
-                  most chosen
+                  most popular
                 </div>
               )}
 
@@ -71,7 +74,7 @@ const Pricing = () => {
               </ul>
 
               <MagneticButton
-                href="#"
+                href="#waitlist"
                 strength={t.featured ? 8 : 5}
                 className={`mt-12 inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-medium ${
                   t.featured
@@ -79,10 +82,16 @@ const Pricing = () => {
                     : "border border-border bg-transparent text-foreground hover:bg-accent"
                 }`}
               >
-                start {t.name}
+                join waitlist
               </MagneticButton>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-sm text-muted-foreground">
+            Early access pricing locks in for 12 months. Pilot study participants receive 50% off for 6 months.
+          </p>
         </div>
       </div>
     </section>
