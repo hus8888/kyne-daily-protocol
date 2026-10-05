@@ -8,7 +8,6 @@ import PepiTechnology from "@/components/kyne/PepiTechnology";
 import ProductSystem from "@/components/kyne/ProductSystem";
 import HowItWorks from "@/components/kyne/HowItWorks";
 import Ingredients from "@/components/kyne/Ingredients";
-import Comparables from "@/components/kyne/Comparables";
 import Pricing from "@/components/kyne/Pricing";
 import Testimonials from "@/components/kyne/Testimonials";
 import FinalCTA from "@/components/kyne/FinalCTA";
@@ -30,7 +29,6 @@ const Index = () => {
       <div id="system" data-reveal><ProductSystem /></div>
       <div id="how-it-works" data-reveal><HowItWorks /></div>
       <div id="ingredients" data-reveal><Ingredients /></div>
-      <div id="comparables" data-reveal><Comparables /></div>
       <div id="testimonials" data-reveal><Testimonials /></div>
       <div id="pricing" data-reveal><Pricing /></div>
       <div data-reveal><FinalCTA /></div>
