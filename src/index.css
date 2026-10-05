@@ -242,12 +242,31 @@ All colors MUST be HSL.
 /* Reduced-motion: respect user OS preference.
    Disable continuous strip dissolve animations (particle drift + edge breathing)
    and hide the floating particle layer entirely so nothing moves. */
+@keyframes scroll-down {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  30%, 70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+.animate-scroll-down {
+  animation: scroll-down 2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-dissolve,
   .animate-dissolve-edge,
   .animate-pulse-glow,
   .animate-float,
-  .animate-shimmer {
+  .animate-shimmer,
+  .animate-scroll-down {
     animation: none !important;
   }
 

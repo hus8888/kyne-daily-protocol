@@ -117,9 +117,26 @@ const Hero = () => {
           </div>
         </div>
 
+        {/* scroll down indicator */}
+        <div
+          className="mt-16 flex justify-center animate-fade-up"
+          style={{ animationDelay: "540ms" }}
+        >
+          <a
+            href="#system"
+            className="group flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+            aria-label="Scroll to product system"
+          >
+            <span className="text-xs uppercase tracking-[0.2em]">Explore</span>
+            <div className="flex h-10 w-6 items-start justify-center overflow-hidden rounded-full border border-border bg-surface/60 backdrop-blur-sm">
+              <div className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/60 animate-scroll-down" />
+            </div>
+          </a>
+        </div>
+
         {/* hero product visual — three soft tinted orbs */}
         <div
-          className="relative mx-auto mt-28 max-w-5xl animate-fade-up"
+          className="relative mx-auto mt-20 max-w-5xl animate-fade-up"
           style={{ animationDelay: "480ms" }}
         >
           <div className="relative mt-20 grid grid-cols-1 gap-3 sm:grid-cols-3 md:mt-24 md:gap-5">
