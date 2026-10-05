@@ -54,7 +54,7 @@ export const LINES: ProductLine[] = [
     description:
       "The flagship circadian protocol. Three strips timed to your body's natural rhythm: Signal to start, Shift to sustain, Rhythm to wind down.",
     color: "#F59E0B",
-    pricePerMonth: 54,
+    pricePerMonth: 48,
     flagship: true,
     actives: [
       "Morning: KSM-66® Ashwagandha 300mg + L-tyrosine 100mg + Methylcobalamin B12 500mcg",
@@ -99,7 +99,7 @@ export const LINES: ProductLine[] = [
     description:
       "Clinical-dose vitamin D3 paired with MenaQ7® K2 as MK-7 — the only K2 with documented cardiovascular and bone outcomes in clinical trials. Fat-soluble actives delivered via lipid-layer strip for optimal absorption.",
     color: "#EAB308",
-    pricePerMonth: 39,
+    pricePerMonth: 48,
     actives: ["Vitamin D3 5000 IU", "Vitamin K2-MK7 (MenaQ7) 200mcg"],
     variants: [
       {
@@ -139,7 +139,7 @@ export const LINES: ProductLine[] = [
     description:
       "Nano-emulsion curcumin, dihydroberberine, and zinc carnosine formulated for buccal delivery. Theracurmin® achieves 6× the bioavailability of standard curcumin. DHB delivers equivalent plasma berberine to 500mg berberine HCl at just 200mg — without the GI side effects.",
     color: "#EA580C",
-    pricePerMonth: 54,
+    pricePerMonth: 68,
     actives: [
       "Theracurmin® curcumin 90mg (nano-emulsion, 6× bioavailability)",
       "Dihydroberberine (DHB) 200mg — strip-native replacement for berberine",
@@ -184,7 +184,7 @@ export const LINES: ProductLine[] = [
     description:
       "Lion's mane 8:1 extract, Cognizin® Citicoline, Bacognize® bacopa, and rhodiola for focus, memory consolidation, and stress-resilient cognition. Standardized extracts keep every active within strip payload limits.",
     color: "#0891B2",
-    pricePerMonth: 59,
+    pricePerMonth: 68,
     actives: [
       "Lion's mane 8:1 extract 150mg (equiv ~1.2g raw)",
       "Cognizin® Citicoline 250mg",
@@ -229,7 +229,7 @@ export const LINES: ProductLine[] = [
     description:
       "NMN 300mg, MitoPrime® Urolithin A 500mg, PQQ, and ALCAR for mitochondrial biogenesis and cellular energy. Buccal NMN bypasses hepatic first-pass for superior NAD+ delivery. MitoPrime® is dosed at the clinical evidence floor of 500mg.",
     color: "#7C3AED",
-    pricePerMonth: 64,
+    pricePerMonth: 88,
     actives: [
       "NMN 300mg (buccal — hepatic first-pass bypass)",
       "MitoPrime® Urolithin A 500mg (clinical evidence dose)",
@@ -274,7 +274,7 @@ export const LINES: ProductLine[] = [
     description:
       "Pharma-GABA 100mg, magnesium glycinate, Levagen+® PEA, Alpha-GPC, and high-dose B12 to support nervous-system regulation, calm, and nerve health. All doses calibrated for strip payload and evidence-based ranges.",
     color: "#3B82F6",
-    pricePerMonth: 54,
+    pricePerMonth: 68,
     actives: [
       "Pharma-GABA® 100mg (fermented — buccal effective)",
       "Magnesium glycinate 200mg",
@@ -319,7 +319,7 @@ export const LINES: ProductLine[] = [
     description:
       "Trans-resveratrol, dihydroberberine (DHB), Setria® glutathione 250mg, and quercetin — a senescence and healthspan protocol. Glutathione via buccal route achieves >80% absorption vs <10% oral. Honest framing: no supplement has demonstrated human lifespan extension; this complements sleep, exercise, and diet.",
     color: "#059669",
-    pricePerMonth: 64,
+    pricePerMonth: 88,
     actives: [
       "Trans-resveratrol 150mg (HPβCD-complexed, buccal — first-pass bypass)",
       "Dihydroberberine (DHB) 200mg",
@@ -364,7 +364,7 @@ export const LINES: ProductLine[] = [
     description:
       "An advanced peptide protocol for tissue repair and recovery.",
     color: "#DB2777",
-    pricePerMonth: 79,
+    pricePerMonth: 118,
     intlOnly: true,
     legalFlag:
       "International only. These peptides are not available for sale in the United States pending regulatory review. Shown for informational purposes.",

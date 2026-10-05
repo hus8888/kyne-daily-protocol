@@ -1,20 +1,20 @@
 const tiers = [
   {
     name: "starter",
-    price: 49,
+    price: 48,
     tagline: "Begin the protocol.",
     features: ["1 strip system (30 days)", "Choice of morning · day · night", "Digital onboarding guide", "Free shipping"],
   },
   {
     name: "core",
-    price: 99,
+    price: 98,
     tagline: "The full daily system.",
     features: ["All 3 strip systems (90 strips/month)", "Morning + Day + Night protocol", "Adaptive dosing guide", "Priority support", "Member app access"],
     featured: true,
   },
   {
     name: "elite",
-    price: 149,
+    price: 148,
     tagline: "Performance, calibrated.",
     features: ["Everything in core", "Monthly 1:1 protocol coaching call", "Quarterly bloodwork analysis ($300 value)", "Early access to new formulations", "Custom protocol adjustments"],
   },
