@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
-import { Link, useLocation } from "wouter";
+import { Link, useLocation } from "react-router-dom";
 
 const PageDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [location] = useLocation();
+  const location = useLocation();
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -25,7 +25,7 @@ const PageDropdown = () => {
   // Close dropdown when navigating
   useEffect(() => {
     setIsOpen(false);
-  }, [location]);
+  }, [location.pathname]);
 
   const pages = [
     { name: "Home", path: "/" },
@@ -59,16 +59,16 @@ const PageDropdown = () => {
         <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-surface-2/98 backdrop-blur-md border border-accent/20 rounded-2xl shadow-xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
           <div className="p-2 max-h-[70vh] overflow-y-auto scrollbar-thin">
             {pages.map((page) => (
-              <Link key={page.path} href={page.path}>
-                <a
-                  className={`block px-4 py-3 rounded-xl transition-all duration-200 ${
-                    location === page.path
-                      ? 'bg-accent/10 text-accent border border-accent/20'
-                      : 'text-foreground/80 hover:bg-surface-3 hover:text-accent'
-                  }`}
-                >
-                  {page.name}
-                </a>
+              <Link
+                key={page.path}
+                to={page.path}
+                className={`block px-4 py-3 rounded-xl transition-all duration-200 ${
+                  location.pathname === page.path
+                    ? 'bg-accent/10 text-accent border border-accent/20'
+                    : 'text-foreground/80 hover:bg-surface-3 hover:text-accent'
+                }`}
+              >
+                {page.name}
               </Link>
             ))}
           </div>
