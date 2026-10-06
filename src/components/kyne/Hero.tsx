@@ -4,7 +4,6 @@ import MagneticButton from "./MagneticButton";
 
 /**
  * Returns hero ambient gradient hues with warm peach/apricot tones.
- * Morning → warm peach/apricot. Day → soft amber. Evening → muted peach. Night → warm taupe.
  */
 function useTimeOfDayAmbience() {
   const [hour, setHour] = useState(() => new Date().getHours());
@@ -19,22 +18,17 @@ function useTimeOfDayAmbience() {
 
   return useMemo(() => {
     if (hour >= 5 && hour < 11) {
-      // Morning — warm peach and apricot
       return { center: "25 75% 85%", left: "30 70% 88%", right: "20 65% 90%", label: "morning" };
     }
     if (hour >= 11 && hour < 16) {
-      // Midday — soft amber and warm sand
       return { center: "35 65% 88%", left: "28 60% 90%", right: "40 55% 92%", label: "midday" };
     }
     if (hour >= 16 && hour < 20) {
-      // Afternoon — golden apricot
       return { center: "30 70% 86%", left: "25 65% 89%", right: "35 60% 91%", label: "afternoon" };
     }
     if (hour >= 20 && hour < 23) {
-      // Evening — muted peach
       return { center: "20 55% 88%", left: "25 50% 90%", right: "15 50% 92%", label: "evening" };
     }
-    // Night — warm taupe
     return { center: "30 45% 90%", left: "25 40% 92%", right: "35 40% 92%", label: "night" };
   }, [hour]);
 }
@@ -70,13 +64,11 @@ const Hero = () => {
       </div>
 
       <div className="container relative">
-        {/* Two-column layout: text left, product right on desktop */}
-        <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2 md:items-center md:gap-16">
-          
-          {/* Left column: Hero copy */}
-          <div className="flex flex-col">
+        <div className="mx-auto max-w-6xl">
+          {/* Badge and headline - centered */}
+          <div className="flex flex-col items-center text-center">
             <div
-              className="mb-10 inline-flex w-fit items-center gap-2 rounded-full border border-border bg-surface-elevated/80 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground backdrop-blur animate-fade-in"
+              className="mb-10 inline-flex items-center gap-2 rounded-full border border-border bg-surface-elevated/80 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground backdrop-blur animate-fade-in"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-foreground/70 animate-pulse-glow" />
               A daily protocol, redesigned
@@ -90,7 +82,7 @@ const Hero = () => {
             </h1>
 
             <p
-              className="mt-8 max-w-lg text-balance text-base text-muted-foreground md:text-lg animate-fade-up"
+              className="mt-8 max-w-xl text-balance text-base text-muted-foreground md:text-lg animate-fade-up"
               style={{ animationDelay: "180ms" }}
             >
               Sublingual strips that work in 90 seconds. No water, no pills, no waiting.
@@ -98,7 +90,7 @@ const Hero = () => {
             </p>
 
             <div
-              className="mt-12 flex flex-col items-start gap-4 sm:flex-row animate-fade-up"
+              className="mt-12 flex flex-col items-center gap-4 sm:flex-row animate-fade-up"
               style={{ animationDelay: "320ms" }}
             >
               <MagneticButton
@@ -118,46 +110,77 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right column: Approved packaging image */}
+          {/* Product showcase - integrated with design system */}
           <div
-            className="relative flex items-center justify-center animate-fade-up"
-            style={{ animationDelay: "240ms" }}
+            className="relative mx-auto mt-20 max-w-4xl animate-fade-up"
+            style={{ animationDelay: "400ms" }}
           >
-            <div className="relative w-full max-w-md">
-              {/* Soft glow behind product */}
+            {/* Rounded card container matching site aesthetic */}
+            <div className="relative overflow-hidden rounded-[28px] border border-border bg-gradient-to-br from-white/90 via-white/80 to-surface/70 p-8 shadow-elevated backdrop-blur-sm md:p-12">
+              
+              {/* Subtle peach glow behind product - integrated with card */}
               <div
-                className="absolute inset-0 translate-y-8 rounded-full blur-3xl opacity-60"
+                className="absolute inset-0 opacity-40"
                 style={{
-                  background: "radial-gradient(circle, hsl(25 75% 85% / 0.7), transparent 70%)",
+                  background: `radial-gradient(ellipse at 50% 40%, hsl(25 75% 85% / 0.6), transparent 70%)`,
                 }}
               />
+
+              {/* Product image - naturally positioned */}
+              <div className="relative z-10 mx-auto flex max-w-2xl items-center justify-center">
+                <img
+                  src="/packaging-hero.jpg"
+                  alt="KYNE Morning Protocol - Tube, Box, and Sachet"
+                  className="w-full h-auto drop-shadow-xl"
+                  loading="eager"
+                />
+              </div>
+
+              {/* Subtle label in corner matching design system */}
+              <div className="absolute left-6 top-6 font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/50">
+                01 — morning
+              </div>
               
-              {/* Product image */}
-              <img
-                src="/packaging-hero.jpg"
-                alt="KYNE Morning Protocol - Tube, Box, and Sachet"
-                className="relative z-10 w-full h-auto drop-shadow-2xl"
-                loading="eager"
-              />
+              {/* Info footer matching product cards */}
+              <div className="relative z-10 mx-auto mt-8 max-w-md rounded-xl border border-border/60 bg-white/85 px-4 py-3 backdrop-blur-md md:mt-10">
+                <div className="flex items-baseline justify-between gap-4">
+                  <div>
+                    <div className="font-display text-sm font-medium tracking-tight text-foreground">
+                      kyne morning
+                    </div>
+                    <div className="mt-0.5 text-xs text-muted-foreground">
+                      clean morning energy · 30 strips
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-display text-sm font-medium text-foreground">
+                      $48
+                    </div>
+                    <div className="mt-0.5 text-[10px] text-muted-foreground">
+                      per month
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Scroll down indicator */}
-        <div
-          className="mt-16 md:mt-20 flex justify-center animate-fade-up"
-          style={{ animationDelay: "540ms" }}
-        >
-          <a
-            href="#system"
-            className="group flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-foreground active:text-foreground"
-            aria-label="Scroll to product system"
+          {/* Scroll indicator */}
+          <div
+            className="mt-16 md:mt-20 flex justify-center animate-fade-up"
+            style={{ animationDelay: "540ms" }}
           >
-            <span className="text-xs uppercase tracking-[0.2em]">Explore</span>
-            <div className="flex h-10 w-6 items-start justify-center overflow-hidden rounded-full border border-border bg-surface/60 backdrop-blur-sm transition-all group-hover:border-foreground/30 group-active:border-foreground/30">
-              <div className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/60 group-hover:bg-foreground group-active:bg-foreground animate-scroll-down" />
-            </div>
-          </a>
+            <a
+              href="#system"
+              className="group flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-foreground active:text-foreground"
+              aria-label="Scroll to product system"
+            >
+              <span className="text-xs uppercase tracking-[0.2em]">Explore</span>
+              <div className="flex h-10 w-6 items-start justify-center overflow-hidden rounded-full border border-border bg-surface/60 backdrop-blur-sm transition-all group-hover:border-foreground/30 group-active:border-foreground/30">
+                <div className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/60 group-hover:bg-foreground group-active:bg-foreground animate-scroll-down" />
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </section>
